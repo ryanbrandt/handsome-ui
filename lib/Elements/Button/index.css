@@ -1,0 +1,54 @@
+.button_common {
+  height: 40px;
+  width: 200px;
+  box-sizing: border-box;
+  border: 2px solid #012639;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.button_standard {
+}
+
+.button_inverting {
+  border-radius: 30px;
+}
+
+.button_inverting:hover {
+  border: 2px solid #012639;
+  background-color: #012639;
+  color: white;
+  transition: 0.5s;
+}
+
+.button_inverting_dark {
+  border: 2px solid #012639;
+  color: #012639;
+}
+
+.button_inverting_light {
+  border: 2px solid white;
+  color: white;
+}
+
+.button_content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 14px;
+  text-align: center;
+}
+
+.button_icon {
+  margin-right: 15px;
+}
+
+.button_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

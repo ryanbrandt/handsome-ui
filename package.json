@@ -4,7 +4,7 @@
   "description": "A handsome React component library",
   "license": "MIT",
   "repository": "https://github.com/ryanbrandt/handsome-ui",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "source": "src/index.ts",
   "engines": {
     "node": ">=10"
@@ -12,7 +12,7 @@
   "scripts": {
     "start": "styleguidist server",
     "test": "jest",
-    "build": "tsc --declaration && copyfiles -u 1 src/**/*.css dist/ && cp fonts -r dist/"
+    "build": "tsc --declaration && copyfiles -u 1 src/**/*.css lib/ && cp -r fonts lib/"
   },
   "jest": {
     "verbose": true,

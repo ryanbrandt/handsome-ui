@@ -1,7 +1,7 @@
 module.exports = {
   components: "./src/**/*.tsx",
   verbose: true,
-  title: "Biomeme Common Web Components",
+  title: "Handsome UI Style Guide",
   usageMode: "expand",
   webpackConfig: {
     module: {

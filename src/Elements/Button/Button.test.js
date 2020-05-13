@@ -21,8 +21,7 @@ describe("Button Component", () => {
     const containingDiv = wrapper.find("div").at(0);
 
     expect(containingDiv.hasClass("button_inverting")).toBe(true);
-    expect(containingDiv.hasClass("button_inverting_dark")).toBe(true);
-    expect(containingDiv.hasClass("button_inverting_light")).toBe(false);
+    expect(containingDiv.hasClass("button_standara")).toBe(false);
   });
 
   test("Standard button styles correctly", () => {

@@ -1,0 +1,46 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: cypress/base:10.18.1
+        environment:
+          TERM: xterm
+          TZ: "America/New_York"
+
+    working_directory: ~/repo
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "36:57:0d:20:25:10:d5:86:eb:0c:1f:b6:24:09:55:b4"
+
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v2-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v2-deps-{{ .Branch }}-
+            - v2-deps-
+
+      - run: yarn install
+
+      - run:
+          name: Unit Test
+          command: yarn jest
+
+      # build dist
+      - run: yarn build
+
+      # make sure git is clean
+      - run:
+          name: Verify /dist is updated
+          command: |
+            sh ./.circleci/lib_is_updated.sh
+
+      - save_cache:
+          key: v2-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.npm
+            - ~/.cache

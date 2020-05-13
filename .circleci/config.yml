@@ -35,7 +35,7 @@ jobs:
 
       # make sure git is clean
       - run:
-          name: Verify /dist is updated
+          name: Verify /lib is updated
           command: |
             sh ./.circleci/lib_is_updated.sh
 

@@ -17,6 +17,10 @@ export interface Props {
      */
     inverting?: boolean;
     /**
+     * Flag to specify if button is round style
+     */
+    round?: boolean;
+    /**
      * Flag to specify if button is disabled; defaults to enabled
      */
     disabled?: boolean;

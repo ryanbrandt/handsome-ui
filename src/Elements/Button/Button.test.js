@@ -13,6 +13,17 @@ describe("Button Component", () => {
     expect(wrapper.exists()).toBe(true);
   });
 
+  test("Standard button styles correctly", () => {
+    const wrapper = shallow(<Button onClick={() => null} title="title" />);
+
+    const containingDiv = wrapper.find("div").at(0);
+
+    expect(containingDiv.hasClass("button_common")).toBe(true);
+    expect(containingDiv.hasClass("button_inverting")).toBe(false);
+    expect(containingDiv.hasClass("button_round")).toBe(false);
+    expect(containingDiv.hasClass("button_disabled")).toBe(false);
+  });
+
   test("Inverting prop styles correctly", () => {
     const wrapper = shallow(
       <Button onClick={() => null} title="title" inverting />
@@ -21,16 +32,16 @@ describe("Button Component", () => {
     const containingDiv = wrapper.find("div").at(0);
 
     expect(containingDiv.hasClass("button_inverting")).toBe(true);
-    expect(containingDiv.hasClass("button_standara")).toBe(false);
   });
 
-  test("Standard button styles correctly", () => {
-    const wrapper = shallow(<Button onClick={() => null} title="title" />);
+  test("Round prop styles correctly", () => {
+    const wrapper = shallow(
+      <Button onClick={() => null} title="title" round />
+    );
 
     const containingDiv = wrapper.find("div").at(0);
 
-    expect(containingDiv.hasClass("button_standard")).toBe(true);
-    expect(containingDiv.hasClass("button_inverting")).toBe(false);
+    expect(containingDiv.hasClass("button_round")).toBe(true);
   });
 
   test("Disabled prop styles correctly", () => {
@@ -41,6 +52,29 @@ describe("Button Component", () => {
     const containingDiv = wrapper.find("div").at(0);
 
     expect(containingDiv.hasClass("button_disabled")).toBe(true);
+  });
+
+  test("Composes classes with custom className", () => {
+    const wrapper = shallow(
+      <Button onClick={() => null} title="title" className="foo_bar" />
+    );
+
+    const containingDiv = wrapper.find("div").at(0);
+
+    expect(containingDiv.hasClass("foo_bar")).toBe(true);
+  });
+
+  test("Inline styling is obeyed", () => {
+    const wrapper = shallow(
+      <Button onClick={() => null} title="title" style={{ opacity: 0.5 }} />
+    );
+
+    const containingDivStyle = wrapper
+      .find("div")
+      .at(0)
+      .props().style;
+
+    expect(containingDivStyle).toHaveProperty("opacity", 0.5);
   });
 
   test("onClick prop triggered onClick", () => {

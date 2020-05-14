@@ -1,34 +1,23 @@
 .button_common {
-  height: 40px;
-  width: 200px;
+  min-height: 40px;
+  min-width: 200px;
+  height: 2.5vh;
+  width: 5vw;
   box-sizing: border-box;
-  border: 2px solid #012639;
+  border: 2px solid black;
   border-radius: 11px;
   cursor: pointer;
 }
 
-.button_standard {
-}
-
-.button_inverting {
+.button_round {
   border-radius: 30px;
 }
 
 .button_inverting:hover {
-  border: 2px solid #012639;
-  background-color: #012639;
+  border: 2px solid #506670c5;
+  background-color: #506670c5;
   color: white;
   transition: 0.5s;
-}
-
-.button_inverting_dark {
-  border: 2px solid #012639;
-  color: #012639;
-}
-
-.button_inverting_light {
-  border: 2px solid white;
-  color: white;
 }
 
 .button_content {
@@ -37,10 +26,8 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 14px;
+  font-size: 1em;
   font-weight: 600;
-  letter-spacing: 0;
-  line-height: 14px;
   text-align: center;
 }
 

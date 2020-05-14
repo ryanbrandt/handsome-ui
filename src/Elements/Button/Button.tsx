@@ -8,10 +8,8 @@ import "../../global.css";
 const Button: React.FunctionComponent<t.Props> = (
   props: t.Props
 ): JSX.Element => {
-  const { title, onClick, icon } = props;
-
   const getButtonClass = () => {
-    const { inverting, disabled, className } = props;
+    const { inverting, round, disabled, className } = props;
 
     let classes: string[] = className
       ? [className, "buton_common"]
@@ -19,8 +17,10 @@ const Button: React.FunctionComponent<t.Props> = (
 
     if (inverting) {
       classes.push("button_inverting");
-    } else {
-      classes.push("button_standard");
+    }
+
+    if (round) {
+      classes.push("button_round");
     }
 
     if (disabled) {
@@ -30,8 +30,10 @@ const Button: React.FunctionComponent<t.Props> = (
     return classes.join(" ");
   };
 
+  const { title, onClick, icon, style } = props;
+
   return (
-    <div className={getButtonClass()} onClick={() => onClick()}>
+    <div className={getButtonClass()} onClick={() => onClick()} style={style}>
       <div className="button_content">
         {icon && <div className="button_icon">{icon}</div>}
         <span>{title}</span>

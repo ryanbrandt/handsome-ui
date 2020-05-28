@@ -10,7 +10,7 @@ interface Props {
   /**
    * Children to be rendered within the app
    */
-  children: React.ReactChildren;
+  children: React.ReactNode;
 
   /**
    * JSX to be rendered within the app header menu

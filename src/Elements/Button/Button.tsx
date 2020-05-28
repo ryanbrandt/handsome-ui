@@ -1,13 +1,49 @@
 import * as React from "react";
 
-import * as t from "./types";
-
 import "./index.css";
-import "../../global.css";
+interface Props {
+  /**
+   * Text content of the button
+   */
+  title: string;
 
-const Button: React.FunctionComponent<t.Props> = (
-  props: t.Props
-): JSX.Element => {
+  /**
+   * Function to execute on button click
+   */
+  onClick: Function;
+
+  /**
+   * Optional icon to display aside text in button
+   */
+  icon?: React.ReactNode;
+
+  /**
+   * Flag to specify if button is the color inverting style
+   */
+  inverting?: boolean;
+
+  /**
+   * Flag to specify if button is round style
+   */
+  round?: boolean;
+
+  /**
+   * Flag to specify if button is disabled; defaults to enabled
+   */
+  disabled?: boolean;
+
+  /**
+   * Optional additional CSS classes to apply to the button
+   */
+  className?: string;
+
+  /**
+   * Optional styles to be defined inline--inline styling is discouraged
+   */
+  style?: React.CSSProperties;
+}
+
+const Button: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const getButtonClass = () => {
     const { inverting, round, disabled, className } = props;
 
@@ -33,7 +69,11 @@ const Button: React.FunctionComponent<t.Props> = (
   const { title, onClick, icon, style } = props;
 
   return (
-    <div className={getButtonClass()} onClick={() => onClick()} style={style}>
+    <div
+      className={getButtonClass()}
+      onClick={() => onClick()}
+      style={style ? style : {}}
+    >
       <div className="button_content">
         {icon && <div className="button_icon">{icon}</div>}
         <span>{title}</span>

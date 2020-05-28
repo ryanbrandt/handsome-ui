@@ -1,6 +1,38 @@
 import * as React from "react";
-import * as t from "./types";
 import "./index.css";
-import "../../global.css";
-declare const Button: React.FunctionComponent<t.Props>;
+interface Props {
+    /**
+     * Text content of the button
+     */
+    title: string;
+    /**
+     * Function to execute on button click
+     */
+    onClick: Function;
+    /**
+     * Optional icon to display aside text in button
+     */
+    icon?: React.ReactNode;
+    /**
+     * Flag to specify if button is the color inverting style
+     */
+    inverting?: boolean;
+    /**
+     * Flag to specify if button is round style
+     */
+    round?: boolean;
+    /**
+     * Flag to specify if button is disabled; defaults to enabled
+     */
+    disabled?: boolean;
+    /**
+     * Optional additional CSS classes to apply to the button
+     */
+    className?: string;
+    /**
+     * Optional styles to be defined inline--inline styling is discouraged
+     */
+    style?: React.CSSProperties;
+}
+declare const Button: React.FunctionComponent<Props>;
 export default Button;

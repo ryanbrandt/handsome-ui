@@ -1,0 +1,9 @@
+.divider_base {
+  background: linear-gradient(
+    90deg,
+    #506670c5 0%,
+    rgba(255, 255, 255, 0.055) 75%,
+    #506670c5 100%
+  );
+  padding: 1px;
+}

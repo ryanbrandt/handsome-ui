@@ -12,7 +12,7 @@
   "scripts": {
     "start": "styleguidist server",
     "test": "jest",
-    "build": "tsc --declaration && copyfiles -u 1 src/**/*.css lib/ && cp -r fonts lib/"
+    "build": "tsc --declaration && copyfiles -u 1 src/**/*.css lib/ && cp -r src/assets lib/"
   },
   "jest": {
     "verbose": true,

@@ -13,6 +13,10 @@ interface Props {
      * Optional flag to specify if gradient or solid variation of border
      */
     solid?: boolean;
+    /**
+     * Optional flag to specify a vertifcal divider
+     */
+    vertical?: boolean;
 }
 declare const Divider: React.FunctionComponent<Props>;
 export default Divider;

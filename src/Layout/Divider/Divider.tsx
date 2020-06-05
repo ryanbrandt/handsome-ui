@@ -17,11 +17,16 @@ interface Props {
    * Optional flag to specify if gradient or solid variation of border
    */
   solid?: boolean;
+
+  /**
+   * Optional flag to specify a vertifcal divider
+   */
+  vertical?: boolean;
 }
 
 const Divider: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const _computeClassName = (): string => {
-    const { solid, className } = props;
+    const { solid, vertical, className } = props;
     let classes: Array<string> = new Array<string>();
 
     if (className) {
@@ -29,9 +34,9 @@ const Divider: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     }
 
     if (solid) {
-      classes.push("divider_solid");
+      classes.push(vertical ? "divider_solid_vr" : "divider_solid_hr");
     } else {
-      classes.push("divider_base");
+      classes.push(vertical ? "divider_base_vr" : "divider_base_hr");
     }
 
     return classes.join(" ");

@@ -86,18 +86,14 @@ interface Props {
 const Input: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const { iconLeft, error, disabled, className } = props;
 
-  const _computeInputClassname = (isMobile: boolean): string => {
+  const _computeInputClassname = (): string => {
     const classes: string[] = [];
 
     if (className) {
       classes.push(className);
     }
 
-    if (isMobile) {
-      classes.push("input_input_mobile");
-    } else {
-      classes.push("input_input");
-    }
+    classes.push("input_input");
 
     if (iconLeft) {
       classes.push("input_input_icon_left");
@@ -113,7 +109,7 @@ const Input: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
     return classes.join(" ");
   };
-  const _renderInput = (isMobile: boolean): React.ReactNode => {
+  const _renderInput = (): React.ReactNode => {
     const {
       value,
       defaultValue,
@@ -136,7 +132,7 @@ const Input: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
       <div className="input_input_wrapper">
         {iconLeft && <span className="input_icon_left">{iconLeft}</span>}
         <input
-          className={_computeInputClassname(isMobile)}
+          className={_computeInputClassname()}
           style={style}
           type={type ? type : "text"}
           placeholder={placeholder ? placeholder : ""}
@@ -176,7 +172,7 @@ const Input: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         style={containerStyle}
       >
         {label && <label className="input_label">{label}</label>}
-        {_renderInput(isMobile)}
+        {_renderInput()}
       </div>
     );
   };

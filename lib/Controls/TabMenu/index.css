@@ -1,0 +1,23 @@
+.tab_menu-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab_menu_tab-active {
+  display: inline-block;
+  padding: 1vw;
+  pointer-events: none;
+}
+
+.tab_menu_tab {
+  display: inline-block;
+  padding: 1vw;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.tab_menu_tab:hover {
+  opacity: 1;
+  transition: 0.5s;
+}

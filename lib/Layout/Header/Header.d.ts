@@ -6,9 +6,13 @@ interface Props {
      */
     menu: React.ReactNode;
     /**
-     * JSX to be rendered within the menu when on mobile
+     * Array of values to present in the mobile menu
      */
-    mobileMenu: React.ReactNode;
+    mobileMenu: Array<string>;
+    /**
+     * Function to execute on click of a mobile menu item
+     */
+    onMobileClick: (item: string) => void;
 }
 declare const Header: React.FunctionComponent<Props>;
 export default Header;

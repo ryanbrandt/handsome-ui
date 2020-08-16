@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { Input } from "../../Inputs";
 import { Search } from "../../Svgs";
+import { Row } from "../../Layout";
 
 import "./index.css";
 
@@ -53,6 +54,7 @@ const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         className={
           activeTab === tab.key ? "tab_menu_tab-active" : "tab_menu_tab"
         }
+        key={tab.title}
         onClick={() => _handleTabChange(tab.key)}
       >
         {tab.title}
@@ -63,14 +65,14 @@ const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const { onSearch } = props;
 
   return (
-    <div className="tab_menu-container">
-      <div className="tab_menu_tab-container">{_renderTabs()}</div>
+    <Row>
+      <div>{_renderTabs()}</div>
       <Input
         placeholder="Search"
         onChange={onSearch}
         iconLeft={<Search width={12} height={12} />}
       />
-    </div>
+    </Row>
   );
 };
 

@@ -33,7 +33,8 @@ const menuOptions = [
       ))}
     </div>
   }
-  mobileMenu={<p>Oh no, mobile!</p>}
+  mobileMenu={["I didnt implement this"]}
+  onMobileClick={() => null}
 >
   Your app here
 </AppContainer>;

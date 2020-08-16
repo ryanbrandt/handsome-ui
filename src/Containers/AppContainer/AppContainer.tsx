@@ -18,9 +18,14 @@ interface Props {
   headerMenu: React.ReactNode;
 
   /**
-   * JSX to be rendered within the app header menu when on mobile
+   * Values to be rendered within the mobile menu
    */
-  mobileMenu: React.ReactNode;
+  mobileMenu: Array<string>;
+
+  /**
+   * Function to be executed when a mobile menu value is selected
+   */
+  onMobileClick: (item: string) => void;
 
   /**
    * Global app container css class
@@ -36,7 +41,14 @@ interface Props {
 const AppContainer: React.FunctionComponent<Props> = (
   props: Props
 ): JSX.Element => {
-  const { headerMenu, mobileMenu, children, className, style } = props;
+  const {
+    headerMenu,
+    mobileMenu,
+    children,
+    className,
+    style,
+    onMobileClick,
+  } = props;
 
   const [isMobile, setIsMobile] = React.useState<boolean>(false);
 
@@ -57,7 +69,11 @@ const AppContainer: React.FunctionComponent<Props> = (
 
   return (
     <AppContext.Provider value={isMobile}>
-      <Header menu={headerMenu} mobileMenu={mobileMenu} />
+      <Header
+        menu={headerMenu}
+        mobileMenu={mobileMenu}
+        onMobileClick={onMobileClick}
+      />
       <div className={className} style={style}>
         {children}
       </div>

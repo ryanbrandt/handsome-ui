@@ -9,6 +9,10 @@ interface Props {
      * Optional message to display
      */
     message?: string;
+    /**
+     * Optional flag to give overlay fade in/out effect
+     */
+    fade?: boolean;
 }
 declare const LoadingOverlay: React.FunctionComponent<Props>;
 export default LoadingOverlay;

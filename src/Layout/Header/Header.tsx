@@ -70,7 +70,6 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         >
           {_renderMobileItems()}
         </div>
-        <div className="app_header_divider" />
       </React.Fragment>
     );
   };
@@ -85,7 +84,6 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         ) : (
           <React.Fragment>
             <div className="app_header">{menu}</div>
-            <div className="app_header_divider" />
           </React.Fragment>
         )
       }

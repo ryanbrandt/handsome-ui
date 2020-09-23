@@ -1,0 +1,55 @@
+.modal_container {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+}
+
+.modal_closed {
+  display: none;
+}
+
+.modal_modal {
+  width: fit-content;
+  height: fit-content;
+  max-height: 80vh;
+  padding: 0px 20px 0px 20px;
+  background-color: #ffffff;
+  overflow-y: auto;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.modal_modal::-webkit-scrollbar {
+  width: 0.4em;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.modal_modal::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.modal_close {
+  float: right;
+  color: #506670c5;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.modal_inner {
+  padding: 0px 50px 0px 50px;
+}
+
+.modal_modal_heading {
+  font-size: 32px;
+  line-height: 38px;
+}

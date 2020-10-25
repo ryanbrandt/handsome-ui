@@ -5,7 +5,19 @@ import { AppContext } from "../../Containers";
 
 import "./index.css";
 
+export enum RowVersionOptions {
+  "default",
+  "space-between"
+}
+
+export type RowVersion = RowVersionOptions;
+
 interface Props {
+  /**
+   * Optional flex row version
+   */
+  version?: RowVersion;
+
   /**
    * Children to be rendered within row
    */
@@ -28,12 +40,28 @@ interface Props {
 
   /**
    * Optional inline styles for row in mobile
-   */
-  mobileStyle?: React.CSSProperties;
+   */ 
+  mobileStyle?: React.CSSProperties;  
 }
 
 const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const { children } = props;
+
+  const _getVersionClassName = (version: RowVersion) => {
+    switch(version) {
+      case RowVersionOptions.default: {
+        return "row";
+      }
+
+      case RowVersionOptions["space-between"]: {
+        return "row_space-between"
+      }
+
+      default: {
+        return "row"
+      }
+    }
+  }
 
   const _renderMobileRow = (): React.ReactNode => {
     const { mobileClassName, mobileStyle } = props;
@@ -46,10 +74,10 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   };
 
   const _renderRow = (): React.ReactNode => {
-    const { className, style } = props;
+    const { className, style, version = RowVersionOptions["space-between"], } = props;
 
     return (
-      <div className={`${className ? `${className} ` : ""}row`} style={style}>
+      <div className={`${className ? `${className} ` : ""}${_getVersionClassName(version)}`} style={style}>
         {children}
       </div>
     );

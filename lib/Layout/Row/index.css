@@ -1,4 +1,8 @@
-.row {
+.row_space-between {
   display: flex;
   justify-content: space-between;
+}
+
+.row {
+  display: flex;
 }

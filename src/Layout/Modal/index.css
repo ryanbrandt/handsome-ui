@@ -42,7 +42,7 @@
   cursor: pointer;
   font-weight: bolder;
   font-size: 18px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .modal_inner {
@@ -51,5 +51,4 @@
 
 .modal_modal_heading {
   font-size: 32px;
-  line-height: 38px;
 }

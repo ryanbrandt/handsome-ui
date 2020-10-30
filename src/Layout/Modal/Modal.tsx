@@ -33,6 +33,12 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     if (topDivRef && topDivRef.current) {
       topDivRef.current.scroll({ top: 0, behavior: "smooth" });
     }
+
+    if (open) {
+      document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+    } else {
+      document.getElementsByTagName("body")[0].style.overflowY = "auto";
+    }
   }, [open]);
 
   const renderHeading = () => {

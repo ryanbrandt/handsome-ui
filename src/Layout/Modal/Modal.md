@@ -21,7 +21,7 @@ class SomeComponent extends React.Component {
           onClose={() => this.setState({ modalOpen: false })}
           open={this.state.modalOpen}
         >
-          Stuff goes here
+          <p style={{ height: "100vh" }}>Stuff goes here</p>
         </Modal>
       </div>
     );

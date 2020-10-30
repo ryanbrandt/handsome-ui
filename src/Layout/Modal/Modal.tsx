@@ -25,6 +25,16 @@ interface Props {
 }
 
 const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+  const topDivRef = React.createRef<HTMLDivElement>();
+
+  const { open } = props;
+
+  React.useEffect(() => {
+    if (topDivRef && topDivRef.current) {
+      topDivRef.current.scroll({ top: 0, behavior: "smooth" });
+    }
+  }, [open]);
+
   const renderHeading = () => {
     const { heading } = props;
     if (typeof heading === "string") {
@@ -38,7 +48,7 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     return heading;
   };
 
-  const { open, onClose, children } = props;
+  const { onClose, children } = props;
 
   return (
     <div
@@ -46,6 +56,7 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
       onClick={() => onClose()}
     >
       <div
+        ref={topDivRef}
         className="modal_modal"
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >

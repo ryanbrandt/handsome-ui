@@ -36,8 +36,10 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
     if (open) {
       document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+      document.getElementsByTagName("html")[0].style.overflowY = "hidden";
     } else {
       document.getElementsByTagName("body")[0].style.overflowY = "auto";
+      document.getElementsByTagName("html")[0].style.overflowY = "auto";
     }
   }, [open]);
 

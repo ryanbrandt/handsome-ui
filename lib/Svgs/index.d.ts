@@ -6,3 +6,4 @@ export { default as Suitcase } from "./Suitcase/Suitcase";
 export { default as Search } from "./Search/Search";
 export { default as EmptyBox } from "./EmptyBox/EmptyBox";
 export { default as Download } from "./DownloadIcon/Download";
+export { default as Code } from "./Code/Code";

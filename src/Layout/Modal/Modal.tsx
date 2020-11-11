@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { combineClassNames } from "../../utils/helpers";
+
 import "./index.css";
 
 interface Props {
@@ -22,6 +24,11 @@ interface Props {
    * Function to execute on Modal close
    */
   onClose: Function;
+
+  /**
+   * Optional additional modal CSS classes
+   */
+  modalClassName?: string;
 }
 
 const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
@@ -56,7 +63,7 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     return heading;
   };
 
-  const { onClose, children } = props;
+  const { modalClassName, onClose, children } = props;
 
   return (
     <div
@@ -65,7 +72,7 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     >
       <div
         ref={topDivRef}
-        className="modal_modal"
+        className={combineClassNames("modal_modal", modalClassName)}
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
         <div className="modal_close" onClick={() => onClose()}>

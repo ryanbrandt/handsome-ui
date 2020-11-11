@@ -17,6 +17,10 @@ interface Props {
      * Function to execute on Modal close
      */
     onClose: Function;
+    /**
+     * Optional additional modal CSS classes
+     */
+    modalClassName?: string;
 }
 declare const Modal: React.FunctionComponent<Props>;
 export default Modal;

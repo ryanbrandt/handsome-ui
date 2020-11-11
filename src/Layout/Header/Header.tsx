@@ -60,7 +60,7 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const _renderMobileMenu = (): JSX.Element => {
     return (
       <React.Fragment>
-        <div className="app_header">
+        <div className="app_header app_header-mobile">
           <div className="app_mobile_icon">
             <BurgerMenu onClick={() => setMobileMenuOpen(true)} />
           </div>

@@ -1,0 +1,15 @@
+.breadcrumb-container {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-divider {
+  font-weight: 100;
+  color: #506670c5;
+  opacity: 0.5;
+  padding: 5px;
+}
+
+.breadcrumb-crumb {
+  cursor: pointer;
+}

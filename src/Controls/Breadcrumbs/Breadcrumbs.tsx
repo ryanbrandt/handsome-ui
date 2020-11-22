@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Row } from "../../Layout";
 
 import "./index.css";
 
@@ -27,16 +26,16 @@ const Breadcrumbs: React.FunctionComponent<Props> = (
 
   if (show) {
     return (
-      <Row version={0}>
+      <div className="breadcrumb-container">
         {crumbs.map((crumb, i) => (
-          <div className="breadcrumb-container">
+          <React.Fragment>
             {i !== 0 && <div className="breadcrumb-divider">/</div>}
             <div className="breadcrumb-crumb" onClick={() => crumb.action()}>
               {crumb.title}
             </div>
-          </div>
+          </React.Fragment>
         ))}
-      </Row>
+      </div>
     );
   }
 

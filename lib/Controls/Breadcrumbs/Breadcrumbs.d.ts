@@ -3,6 +3,7 @@ import "./index.css";
 interface Crumb {
     title: string;
     action: Function;
+    disabled?: boolean;
 }
 interface Props {
     /**

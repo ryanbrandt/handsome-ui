@@ -19,7 +19,7 @@
 }
 
 .fadeable-content {
-  animation: fadeIn 0.2s;
+  animation: fadeIn 0.35s;
 }
 
 @keyframes fadeIn {

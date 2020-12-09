@@ -1,1 +1,3 @@
-describe.skip("Breadcrumbs component", () => {});
+describe.skip("Breadcrumbs component", () => {
+  test("Component renders", () => {});
+});

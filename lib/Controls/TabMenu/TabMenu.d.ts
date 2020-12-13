@@ -3,6 +3,7 @@ import "./index.css";
 interface Tab {
     title: string;
     key: string;
+    active?: boolean;
 }
 interface Props {
     /**
@@ -10,11 +11,6 @@ interface Props {
      * These define the display value (title) and onTab argument value (key) for each tab
      */
     tabs: Array<Tab>;
-    /**
-     * Optional default active tab
-     * If not defined, first item in Tab array will be defaulted to
-     */
-    defaultTab?: string;
     /**
      * Function to be executed on selection of a tab
      */

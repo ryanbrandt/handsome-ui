@@ -32,7 +32,7 @@ const Breadcrumbs: React.FunctionComponent<Props> = (
           <React.Fragment key={`${crumb.title}_${i}`}>
             {i !== 0 && <div className="breadcrumb-divider">/</div>}
             <div
-              className={`breadcrumb-crumb${crumb.disabled ? "disabled" : ""}`}
+              className={`breadcrumb-crumb ${crumb.disabled ? "disabled" : ""}`}
               onClick={crumb.disabled ? () => null : () => crumb.action()}
             >
               {crumb.title}

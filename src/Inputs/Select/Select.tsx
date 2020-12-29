@@ -67,7 +67,7 @@ const Select: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   };
 
   return (
-    <div className={combineClassNames("select_select", containerClasses)}>
+    <div className={combineClassNames("select_container", containerClasses)}>
       {label && <label className="select_label">{label}</label>}
       <select
         value={value}

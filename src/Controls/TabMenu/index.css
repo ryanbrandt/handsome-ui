@@ -16,6 +16,10 @@
   transition: 0.5s;
 }
 
+.tab_menu-dropdown-container {
+  margin-top: 10px;
+}
+
 .tab_menu-mobile-container {
   display: flex;
   justify-content: center;

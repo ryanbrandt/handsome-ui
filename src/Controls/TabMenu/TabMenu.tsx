@@ -55,9 +55,11 @@ const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
   const _renderMobileTabs = (): React.ReactNode => {
     return (
-      <Dropdown heading="Filter By">
-        <Column className="tab_menu-mobile-container">{_renderTabs()}</Column>
-      </Dropdown>
+      <div className="tab_menu-dropdown-container">
+        <Dropdown heading="Filter By">
+          <Column className="tab_menu-mobile-container">{_renderTabs()}</Column>
+        </Dropdown>
+      </div>
     );
   };
 

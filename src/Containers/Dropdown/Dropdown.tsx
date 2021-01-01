@@ -106,11 +106,14 @@ class Dropdown extends React.Component<Props, State> {
             transform={open ? "" : "rotate(180)"}
           />
         </div>
-        {open && (
-          <div className={combineClassNames("", contentClasses)}>
-            {children}
-          </div>
-        )}
+        <div
+          className={combineClassNames(
+            open ? "dropdown-open" : "dropdown-closed",
+            contentClasses
+          )}
+        >
+          {children}
+        </div>
         {dividerBottom && (
           <Divider className="dropdown_container_divider_bottom" />
         )}

@@ -1,0 +1,23 @@
+.dropdown_container {
+  width: 100%;
+}
+
+.dropdown_container_masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  cursor: pointer;
+}
+
+.dropdown_container_heading {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.dropdown_container_divider_top {
+  margin-bottom: 15px;
+}
+
+.dropdown_container_divider_bottom {
+  margin-top: 15px;
+}

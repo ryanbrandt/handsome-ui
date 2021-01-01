@@ -8,4 +8,5 @@ export { default as EmptyBox } from "./EmptyBox/EmptyBox";
 export { default as Download } from "./DownloadIcon/Download";
 export { default as Code } from "./Code/Code";
 export { default as Trash } from "./Trash/Trash";
+export { default as Chevron } from "./Chevron/Chevron";
 export { default as WorldWideWeb } from "./WorldWideWeb/WorldWideWeb";

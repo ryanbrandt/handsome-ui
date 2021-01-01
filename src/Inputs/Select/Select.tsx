@@ -41,11 +41,6 @@ interface Props {
   error?: string;
 
   /**
-   * Optional flag to specify if an empty option should be available
-   */
-  emptyOption?: boolean;
-
-  /**
    * Optional additional container CSS classes
    */
   containerClasses?: string;
@@ -69,16 +64,6 @@ const Select: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     }
 
     return combineClassNames(classes.join(" "), selectClasses);
-  };
-
-  const _renderEmptyOption = (): React.ReactNode => {
-    const { emptyOption } = props;
-
-    if (emptyOption) {
-      return <option value="">--</option>;
-    }
-
-    return null;
   };
 
   const _renderOptions = (): React.ReactNode => {
@@ -111,7 +96,7 @@ const Select: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
           onChange(e.currentTarget.value)
         }
       >
-        {_renderEmptyOption()}
+        <option value="">--</option>
         {_renderOptions()}
       </select>
       {error && <span className="select_error">{error}</span>}

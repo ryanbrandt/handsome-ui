@@ -15,3 +15,9 @@
   opacity: 1;
   transition: 0.5s;
 }
+
+.tab_menu-mobile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

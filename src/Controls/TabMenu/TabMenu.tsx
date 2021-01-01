@@ -3,7 +3,8 @@ import * as React from "react";
 import AppContext from "../../Containers/AppContainer/AppContext";
 import { Input } from "../../Inputs";
 import { Search } from "../../Svgs";
-import { Row } from "../../Layout";
+import { Column, Row } from "../../Layout";
+import { Dropdown } from "../../Containers";
 
 import "./index.css";
 
@@ -52,13 +53,21 @@ const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     ));
   };
 
+  const _renderMobileTabs = (): React.ReactNode => {
+    return (
+      <Dropdown heading="Filter By">
+        <Column className="tab_menu-mobile-container">{_renderTabs()}</Column>
+      </Dropdown>
+    );
+  };
+
   const { onSearch } = props;
 
   return (
     <AppContext.Consumer>
       {(isMobile) => (
         <Row>
-          <Row version={isMobile ? 2 : 0}>{_renderTabs()}</Row>
+          <div>{isMobile ? _renderMobileTabs() : _renderTabs()}</div>
           <Input
             placeholder="Search"
             onChange={onSearch}

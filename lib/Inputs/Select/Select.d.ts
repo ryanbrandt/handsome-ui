@@ -30,10 +30,6 @@ interface Props {
      */
     error?: string;
     /**
-     * Optional flag to specify if an empty option should be available
-     */
-    emptyOption?: boolean;
-    /**
      * Optional additional container CSS classes
      */
     containerClasses?: string;

@@ -20,12 +20,14 @@
 }
 
 .app_menu-escape {
+  padding: 15px 15px 0px 15px;
   cursor: pointer;
   color: #506670ea;
   transition: 0.2s;
 }
 
 .app_menu-icon {
+  padding: 15px 15px 0px 15px;
   cursor: pointer;
   fill: #506670ea;
   transition: 0.2s;

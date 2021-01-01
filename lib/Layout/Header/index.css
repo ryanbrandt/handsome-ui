@@ -20,14 +20,14 @@
 }
 
 .app_menu-escape {
-  padding: 15px 15px 0px 15px;
+  padding: 25px 25px 0px 25px;
   cursor: pointer;
   color: #506670ea;
   transition: 0.2s;
 }
 
 .app_menu-icon {
-  padding: 15px 15px 0px 15px;
+  padding: 25px 25px 0px 25px;
   cursor: pointer;
   fill: #506670ea;
   transition: 0.2s;
@@ -47,9 +47,12 @@
   position: sticky;
   display: flex;
   align-items: center;
+  background-color: white;
+  box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .app_mobile_icon {
+  fill: #506670ea;
   padding: 5%;
 }
 

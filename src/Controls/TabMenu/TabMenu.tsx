@@ -71,6 +71,7 @@ const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         <Row>
           <div>{isMobile ? _renderMobileTabs() : _renderTabs()}</div>
           <Input
+            type="search"
             placeholder="Search"
             onChange={onSearch}
             iconLeft={<Search width={12} height={12} />}

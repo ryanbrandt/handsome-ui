@@ -1,14 +1,48 @@
 .app_header {
-  position: sticky;
   top: 0;
   z-index: 1;
   width: 100%;
   height: 7.5vh;
-  background-color: #f2f2f5;
-  box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.app_menu-closed {
+  max-width: 0;
+  overflow: hidden;
+  visibility: collapse;
+  transition: all 0.25s ease-out;
+}
+
+.app_menu-open {
+  max-width: 100vw;
+  overflow: auto;
+  visibility: visible;
+  transition: all 0.25s ease-out;
+}
+
+.app_menu-escape {
+  cursor: pointer;
+  color: #506670ea;
+  transition: 0.2s;
+}
+
+.app_menu-icon {
+  cursor: pointer;
+  fill: #506670ea;
+  transition: 0.2s;
+}
+
+.app_menu-icon:hover {
+  fill: black;
+  transition: 0.2s;
+}
+
+.app_menu-escape:hover {
+  color: black;
+  transition: 0.2s;
 }
 
 .app_header-mobile {
+  position: sticky;
   display: flex;
   align-items: center;
 }

@@ -1,18 +1,19 @@
 import * as React from "react";
 import "./index.css";
+interface HeaderOption {
+    [key: string]: any;
+    name: string;
+    action: Function;
+}
 interface Props {
     /**
      * JSX to be rendered within the menu
      */
-    menu: React.ReactNode;
+    options: Array<HeaderOption>;
     /**
-     * Array of values to present in the mobile menu
+     * Optional default active option
      */
-    mobileMenu: Array<string>;
-    /**
-     * Function to execute on click of a mobile menu item
-     */
-    onMobileClick: (item: string) => void;
+    defaultActive?: string;
 }
 declare const Header: React.FunctionComponent<Props>;
 export default Header;

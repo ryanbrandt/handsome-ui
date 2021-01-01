@@ -1,4 +1,5 @@
 import * as React from "react";
+import Header from "../../Layout/Header/Header";
 import "../../global.css";
 interface Props {
     /**
@@ -6,17 +7,9 @@ interface Props {
      */
     children: React.ReactNode;
     /**
-     * JSX to be rendered within the app header menu
+     * Header menu to be rendered within the application container
      */
-    headerMenu: React.ReactNode;
-    /**
-     * Values to be rendered within the mobile menu
-     */
-    mobileMenu: Array<string>;
-    /**
-     * Function to be executed when a mobile menu value is selected
-     */
-    onMobileClick: (item: string) => void;
+    header: typeof Header;
     /**
      * Global app container css class
      */

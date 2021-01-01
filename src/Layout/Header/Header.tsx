@@ -7,35 +7,43 @@ import { Column } from "../../Layout";
 
 import "./index.css";
 
+interface HeaderOption {
+  [key: string]: any;
+  name: string;
+  action: Function;
+}
+
 interface Props {
   /**
    * JSX to be rendered within the menu
    */
-  menu: React.ReactNode;
+  options: Array<HeaderOption>;
 
   /**
-   * Array of values to present in the mobile menu
+   * Optional default active option
    */
-  mobileMenu: Array<string>;
-
-  /**
-   * Function to execute on click of a mobile menu item
-   */
-  onMobileClick: (item: string) => void;
+  defaultActive?: string;
 }
 
 const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+  const { defaultActive } = props;
+
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
+  const [activeOption, setActiveOption] = React.useState<string | undefined>(
+    defaultActive
+  );
 
-  const _handleMobileClick = (item: string): void => {
-    const { onMobileClick } = props;
+  const handleItemClick = (option: HeaderOption): void => {
+    const { action } = option;
 
-    onMobileClick(item);
+    setActiveOption(option.name);
+    action();
     setMenuOpen(false);
   };
 
   const _renderMobileItems = (): React.ReactNode => {
-    const { mobileMenu } = props;
+    const { options } = props;
+
     return (
       <React.Fragment>
         <div className="app_mobile-escape" onClick={() => setMenuOpen(false)}>
@@ -43,9 +51,9 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         </div>
         <div className="app_mobile-content">
           <Column>
-            {mobileMenu.map((item) => (
-              <h1 key={item} onClick={() => _handleMobileClick(item)}>
-                {item}
+            {options.map((option) => (
+              <h1 key={option.name} onClick={() => handleItemClick(option)}>
+                {option.name}
               </h1>
             ))}
           </Column>
@@ -69,23 +77,37 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     );
   };
 
-  const _renderDefaultMenu = (): React.ReactNode => {
-    const { menu } = props;
+  const _renderDefaultOptions = (): React.ReactNode => {
+    const { options } = props;
 
     return (
+      <div className="app_menu-options app_menu">
+        {options.map((option) => (
+          <span
+            key={option.name}
+            className={
+              option.name === activeOption
+                ? "app_menu_active medium_text"
+                : "app_menu_option medium_text"
+            }
+            onClick={() => handleItemClick(option)}
+          >
+            {option.name}
+          </span>
+        ))}
+      </div>
+    );
+  };
+
+  const _renderDefaultMenu = (): React.ReactNode => {
+    return (
       <div className="app_header header-row">
-        {menuOpen ? (
-          <div className="app_menu-escape" onClick={() => setMenuOpen(false)}>
-            X
-          </div>
-        ) : (
-          <BurgerMenu
-            className="app_menu-icon"
-            onClick={() => setMenuOpen(true)}
-          />
-        )}
+        <BurgerMenu
+          className={menuOpen ? "app_menu-icon-active" : "app_menu-icon"}
+          onClick={() => setMenuOpen(!menuOpen)}
+        />
         <div className={menuOpen ? "app_menu-open" : "app_menu-closed"}>
-          {menu}
+          {_renderDefaultOptions()}
         </div>
       </div>
     );

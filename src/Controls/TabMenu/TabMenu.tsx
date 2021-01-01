@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import AppContext from "../../Containers/AppContainer/AppContext";
 import { Input } from "../../Inputs";
 import { Search } from "../../Svgs";
 import { Row } from "../../Layout";
@@ -54,14 +55,18 @@ const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
   const { onSearch } = props;
 
   return (
-    <Row>
-      <div>{_renderTabs()}</div>
-      <Input
-        placeholder="Search"
-        onChange={onSearch}
-        iconLeft={<Search width={12} height={12} />}
-      />
-    </Row>
+    <AppContext.Consumer>
+      {(isMobile) => (
+        <Row>
+          <Row version={isMobile ? 2 : 0}>{_renderTabs()}</Row>
+          <Input
+            placeholder="Search"
+            onChange={onSearch}
+            iconLeft={<Search width={12} height={12} />}
+          />
+        </Row>
+      )}
+    </AppContext.Consumer>
   );
 };
 

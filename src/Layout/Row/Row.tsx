@@ -8,6 +8,7 @@ import "./index.css";
 export enum RowVersionOptions {
   "default",
   "space-between",
+  "space-evenly",
 }
 
 export type RowVersion = RowVersionOptions;
@@ -56,6 +57,10 @@ const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
       case RowVersionOptions["space-between"]: {
         return "row_space-between";
+      }
+
+      case RowVersionOptions["space-evenly"]: {
+        return "row_space-evenly";
       }
 
       default: {

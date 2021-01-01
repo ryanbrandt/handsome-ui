@@ -6,10 +6,6 @@ interface Props {
      */
     open: boolean;
     /**
-     * Modal heading string or JSX to be rendered
-     */
-    heading: string | React.ReactNode;
-    /**
      * Children to render within modal
      */
     children: React.ReactNode;
@@ -17,6 +13,10 @@ interface Props {
      * Function to execute on Modal close
      */
     onClose: Function;
+    /**
+     * Modal heading string or JSX to be rendered
+     */
+    heading?: string | React.ReactNode;
     /**
      * Optional additional modal CSS classes
      */

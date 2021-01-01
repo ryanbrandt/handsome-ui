@@ -49,7 +49,7 @@ const Table: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
     return (
       <thead>
-        <tr className="table_row">
+        <tr className="table_row-header">
           {headers.map((header: string | React.ReactNode, i: number) =>
             _renderHeader(header, i)
           )}

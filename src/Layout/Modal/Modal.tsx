@@ -11,11 +11,6 @@ interface Props {
   open: boolean;
 
   /**
-   * Modal heading string or JSX to be rendered
-   */
-  heading: string | React.ReactNode;
-
-  /**
    * Children to render within modal
    */
   children: React.ReactNode;
@@ -24,6 +19,11 @@ interface Props {
    * Function to execute on Modal close
    */
   onClose: Function;
+
+  /**
+   * Modal heading string or JSX to be rendered
+   */
+  heading?: string | React.ReactNode;
 
   /**
    * Optional additional modal CSS classes
@@ -52,7 +52,7 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
   const renderHeading = () => {
     const { heading } = props;
-    if (typeof heading === "string") {
+    if (!heading || typeof heading === "string") {
       return (
         <div className="modal_modal_heading">
           <h1>{heading}</h1>

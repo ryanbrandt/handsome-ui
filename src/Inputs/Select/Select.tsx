@@ -41,6 +41,11 @@ interface Props {
   error?: string;
 
   /**
+   * Optional flag to specify if an empty option should be available
+   */
+  emptyOption?: boolean;
+
+  /**
    * Optional additional container CSS classes
    */
   containerClasses?: string;
@@ -66,6 +71,36 @@ const Select: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     return combineClassNames(classes.join(" "), selectClasses);
   };
 
+  const _renderEmptyOption = (): React.ReactNode => {
+    const { emptyOption } = props;
+
+    if (emptyOption) {
+      return <option value="">--</option>;
+    }
+
+    return null;
+  };
+
+  const _renderOptions = (): React.ReactNode => {
+    return options.map((option: string | Option, i: number) => {
+      let listOption: React.ReactNode;
+      if (typeof option === "string") {
+        listOption = (
+          <option key={`${option}_${i}`} value={option}>
+            {option}
+          </option>
+        );
+      } else {
+        listOption = (
+          <option key={`${option.value}_${i}`} value={option.value}>
+            {option.label}
+          </option>
+        );
+      }
+      return listOption;
+    });
+  };
+
   return (
     <div className={combineClassNames("select_container", containerClasses)}>
       {label && <label className="select_label">{label}</label>}
@@ -76,28 +111,8 @@ const Select: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
           onChange(e.currentTarget.value)
         }
       >
-        <option value="">--</option>
-        {options.map((option: string | Option, i: number) => {
-          let listOption;
-          if (typeof option === "string") {
-            listOption = (
-              <option key={`${option}_${i}`} value={option}>
-                {option}
-              </option>
-            );
-          } else if (
-            typeof option === "object" &&
-            "label" in option &&
-            "value" in option
-          ) {
-            listOption = (
-              <option key={`${option.value}_${i}`} value={option.value}>
-                {option.label}
-              </option>
-            );
-          }
-          return listOption;
-        })}
+        {_renderEmptyOption()}
+        {_renderOptions()}
       </select>
       {error && <span className="select_error">{error}</span>}
     </div>

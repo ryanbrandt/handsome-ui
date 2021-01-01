@@ -1,5 +1,4 @@
 import * as React from "react";
-import Header from "../../Layout/Header/Header";
 import "../../global.css";
 interface Props {
     /**
@@ -9,7 +8,7 @@ interface Props {
     /**
      * Header menu to be rendered within the application container
      */
-    header: typeof Header;
+    header: React.ReactNode;
     /**
      * Global app container css class
      */

@@ -81,27 +81,29 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     const { options } = props;
 
     return (
-      <div className="app_menu-options app_menu">
+      <React.Fragment>
         <Chevron
           className="app_menu-escape"
           width={20}
           height={20}
           onClick={() => setMenuOpen(false)}
         />
-        {options.map((option) => (
-          <span
-            key={option.name}
-            className={
-              option.name === activeOption
-                ? "app_menu_active medium_text"
-                : "app_menu_option medium_text"
-            }
-            onClick={() => handleItemClick(option)}
-          >
-            {option.name}
-          </span>
-        ))}
-      </div>
+        <div className="app_menu-options app_menu">
+          {options.map((option) => (
+            <span
+              key={option.name}
+              className={
+                option.name === activeOption
+                  ? "app_menu_active medium_text"
+                  : "app_menu_option medium_text"
+              }
+              onClick={() => handleItemClick(option)}
+            >
+              {option.name}
+            </span>
+          ))}
+        </div>
+      </React.Fragment>
     );
   };
 

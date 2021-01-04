@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { AppContext } from "../../Containers";
 
-import { BurgerMenu } from "../../Svgs";
+import { BurgerMenu, Chevron } from "../../Svgs";
 import { Column } from "../../Layout";
 
 import "./index.css";
@@ -82,6 +82,12 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
     return (
       <div className="app_menu-options app_menu">
+        <Chevron
+          className="app_menu-escape"
+          width={20}
+          height={20}
+          onClick={() => setMenuOpen(false)}
+        />
         {options.map((option) => (
           <span
             key={option.name}
@@ -104,7 +110,7 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
       <div className="app_header header-row">
         <BurgerMenu
           className={menuOpen ? "app_menu-icon-active" : "app_menu-icon"}
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen(true)}
         />
         <div className={menuOpen ? "app_menu-open" : "app_menu-closed"}>
           {_renderDefaultOptions()}

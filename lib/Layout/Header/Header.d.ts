@@ -4,16 +4,13 @@ interface HeaderOption {
     [key: string]: any;
     name: string;
     action: Function;
+    active?: boolean;
 }
 interface Props {
     /**
      * JSX to be rendered within the menu
      */
     options: Array<HeaderOption>;
-    /**
-     * Optional default active option
-     */
-    defaultActive?: string;
 }
 declare const Header: React.FunctionComponent<Props>;
 export default Header;

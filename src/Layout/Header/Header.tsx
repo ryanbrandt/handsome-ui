@@ -11,6 +11,7 @@ interface HeaderOption {
   [key: string]: any;
   name: string;
   action: Function;
+  active?: boolean;
 }
 
 interface Props {
@@ -18,25 +19,14 @@ interface Props {
    * JSX to be rendered within the menu
    */
   options: Array<HeaderOption>;
-
-  /**
-   * Optional default active option
-   */
-  defaultActive?: string;
 }
 
 const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
-  const { defaultActive } = props;
-
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
-  const [activeOption, setActiveOption] = React.useState<string | undefined>(
-    defaultActive
-  );
 
   const handleItemClick = (option: HeaderOption): void => {
     const { action } = option;
 
-    setActiveOption(option.name);
     action();
     setMenuOpen(false);
   };
@@ -51,11 +41,14 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
         </div>
         <div className="app_mobile-content">
           <Column>
-            {options.map((option) => (
-              <h1 key={option.name} onClick={() => handleItemClick(option)}>
-                {option.name}
-              </h1>
-            ))}
+            {options.map(
+              (option) =>
+                !option.active && (
+                  <h1 key={option.name} onClick={() => handleItemClick(option)}>
+                    {option.name}
+                  </h1>
+                )
+            )}
           </Column>
         </div>
       </React.Fragment>
@@ -93,7 +86,7 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
             <span
               key={option.name}
               className={
-                option.name === activeOption
+                option.active
                   ? "app_menu_active medium_text"
                   : "app_menu_option medium_text"
               }

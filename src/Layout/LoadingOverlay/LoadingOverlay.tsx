@@ -31,18 +31,18 @@ const LoadingOverlay: React.FunctionComponent<Props> = (
     additionalStyles = "fadeable-content";
   }
 
-  if (show) {
-    return (
-      <div className={`loading_overlay-container ${additionalStyles}`}>
-        <div className="loading_overlay-content">
-          <Spinner />
-          {message && <h2>{message}</h2>}
-        </div>
+  return (
+    <div
+      className={`loading_overlay-container ${
+        show ? "revealed" : "hidden"
+      } ${additionalStyles}`}
+    >
+      <div className="loading_overlay-content">
+        <Spinner />
+        {message && <h2>{message}</h2>}
       </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 };
 
 export default LoadingOverlay;

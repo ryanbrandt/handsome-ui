@@ -11,13 +11,15 @@ class SomeComponent extends React.Component {
     };
   }
 
+  timeoutShow() {
+    this.setState({ show: true });
+    setTimeout(() => this.setState({ show: false }), 5000);
+  }
+
   render() {
     return (
       <div>
-        <Button
-          title="Show Overlay"
-          onClick={() => this.setState({ show: true })}
-        />
+        <Button title="Show Overlay" onClick={() => this.timeoutShow()} />
         <LoadingOverlay
           show={this.state.show}
           message={"A Helpful Message"}

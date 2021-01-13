@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { combineClassNames } from "../../utils/helpers";
+
 import "./index.css";
 
 interface Props {
@@ -7,11 +9,6 @@ interface Props {
    * Flag that toggles modal visibility
    */
   open: boolean;
-
-  /**
-   * Modal heading string or JSX to be rendered
-   */
-  heading: string | React.ReactNode;
 
   /**
    * Children to render within modal
@@ -22,12 +19,40 @@ interface Props {
    * Function to execute on Modal close
    */
   onClose: Function;
+
+  /**
+   * Modal heading string or JSX to be rendered
+   */
+  heading?: string | React.ReactNode;
+
+  /**
+   * Optional additional modal CSS classes
+   */
+  modalClassName?: string;
 }
 
 const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+  const topDivRef = React.createRef<HTMLDivElement>();
+
+  const { open } = props;
+
+  React.useEffect(() => {
+    if (topDivRef && topDivRef.current) {
+      topDivRef.current.scroll({ top: 0, behavior: "smooth" });
+    }
+
+    if (open) {
+      document.getElementsByTagName("body")[0].style.overflowY = "hidden";
+      document.getElementsByTagName("html")[0].style.overflowY = "hidden";
+    } else {
+      document.getElementsByTagName("body")[0].removeAttribute("style");
+      document.getElementsByTagName("html")[0].removeAttribute("style");
+    }
+  }, [open]);
+
   const renderHeading = () => {
     const { heading } = props;
-    if (typeof heading === "string") {
+    if (!heading || typeof heading === "string") {
       return (
         <div className="modal_modal_heading">
           <h1>{heading}</h1>
@@ -38,7 +63,7 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     return heading;
   };
 
-  const { open, onClose, children } = props;
+  const { modalClassName, onClose, children } = props;
 
   return (
     <div
@@ -46,7 +71,8 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
       onClick={() => onClose()}
     >
       <div
-        className="modal_modal"
+        ref={topDivRef}
+        className={combineClassNames("modal_modal", modalClassName)}
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
         <div className="modal_close" onClick={() => onClose()}>

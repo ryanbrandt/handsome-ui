@@ -7,86 +7,113 @@ import { Column } from "../../Layout";
 
 import "./index.css";
 
+interface HeaderOption {
+  [key: string]: any;
+  name: string;
+  action: Function;
+  active?: boolean;
+}
+
 interface Props {
   /**
    * JSX to be rendered within the menu
    */
-  menu: React.ReactNode;
-
-  /**
-   * Array of values to present in the mobile menu
-   */
-  mobileMenu: Array<string>;
-
-  /**
-   * Function to execute on click of a mobile menu item
-   */
-  onMobileClick: (item: string) => void;
+  options: Array<HeaderOption>;
 }
 
 const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
 
-  const _handleMobileClick = (item: string) => {
-    const { onMobileClick } = props;
+  const handleItemClick = (option: HeaderOption): void => {
+    const { action } = option;
 
-    onMobileClick(item);
-    setMobileMenuOpen(false);
+    action();
+    setMenuOpen(false);
   };
 
   const _renderMobileItems = (): React.ReactNode => {
-    const { mobileMenu } = props;
+    const { options } = props;
+
     return (
       <React.Fragment>
-        <div
-          className="app_mobile-escape"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+        <div className="app_mobile-escape" onClick={() => setMenuOpen(false)}>
           X
         </div>
         <div className="app_mobile-content">
           <Column>
-            {mobileMenu.map((item) => (
-              <h1 key={item} onClick={() => _handleMobileClick(item)}>
-                {item}
-              </h1>
-            ))}
+            {options.map(
+              (option) =>
+                !option.active && (
+                  <h1 key={option.name} onClick={() => handleItemClick(option)}>
+                    {option.name}
+                  </h1>
+                )
+            )}
           </Column>
         </div>
       </React.Fragment>
     );
   };
 
-  const _renderMobileMenu = (): JSX.Element => {
+  const _renderMobileMenu = (): React.ReactNode => {
     return (
       <React.Fragment>
-        <div className="app_header">
+        <div className="app_header app_header-mobile">
           <div className="app_mobile_icon">
-            <BurgerMenu onClick={() => setMobileMenuOpen(true)} />
+            <BurgerMenu onClick={() => setMenuOpen(true)} />
           </div>
         </div>
-        <div
-          className={`app_mobile_menu ${mobileMenuOpen ? "open" : "closed"}`}
-        >
+        <div className={`app_mobile_menu ${menuOpen ? "open" : "closed"}`}>
           {_renderMobileItems()}
         </div>
       </React.Fragment>
     );
   };
 
-  const { menu } = props;
+  const _renderDefaultOptions = (): React.ReactNode => {
+    const { options } = props;
+
+    return (
+      <React.Fragment>
+        <div onClick={() => setMenuOpen(false)} className="app_menu-escape">
+          X
+        </div>
+        <div className="app_menu-options app_menu">
+          {options.map((option) => (
+            <span
+              key={option.name}
+              className={
+                option.active
+                  ? "app_menu_active medium_text"
+                  : "app_menu_option medium_text"
+              }
+              onClick={() => handleItemClick(option)}
+            >
+              {option.name}
+            </span>
+          ))}
+        </div>
+      </React.Fragment>
+    );
+  };
+
+  const _renderDefaultMenu = (): React.ReactNode => {
+    return (
+      <div className="app_header header-row">
+        <BurgerMenu
+          className={menuOpen ? "app_menu-icon-active" : "app_menu-icon"}
+          onClick={() => setMenuOpen(true)}
+        />
+        <div className={menuOpen ? "app_menu-open" : "app_menu-closed"}>
+          {_renderDefaultOptions()}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <AppContext.Consumer>
-      {(isMobile) =>
-        isMobile ? (
-          _renderMobileMenu()
-        ) : (
-          <React.Fragment>
-            <div className="app_header">{menu}</div>
-          </React.Fragment>
-        )
-      }
+      {(isMobile) => (isMobile ? _renderMobileMenu() : _renderDefaultMenu())}
     </AppContext.Consumer>
   );
 };

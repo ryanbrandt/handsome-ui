@@ -6,17 +6,9 @@ interface Props {
      */
     children: React.ReactNode;
     /**
-     * JSX to be rendered within the app header menu
+     * Header menu to be rendered within the application container
      */
-    headerMenu: React.ReactNode;
-    /**
-     * Values to be rendered within the mobile menu
-     */
-    mobileMenu: Array<string>;
-    /**
-     * Function to be executed when a mobile menu value is selected
-     */
-    onMobileClick: (item: string) => void;
+    header: React.ReactNode;
     /**
      * Global app container css class
      */

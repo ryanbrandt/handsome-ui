@@ -8,6 +8,7 @@
 
 .text_container_mobile {
   margin: 10px;
+  height: 25vh;
   display: flex;
   flex-direction: column;
   width: 75vw;

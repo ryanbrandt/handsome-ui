@@ -1,6 +1,16 @@
 import * as React from "react";
 import "./index.css";
+export declare enum RowVersionOptions {
+    "default" = 0,
+    "space-between" = 1,
+    "space-evenly" = 2
+}
+export declare type RowVersion = RowVersionOptions;
 interface Props {
+    /**
+     * Optional flex row version
+     */
+    version?: RowVersion;
     /**
      * Children to be rendered within row
      */

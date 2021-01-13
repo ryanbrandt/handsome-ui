@@ -1,0 +1,16 @@
+.table_row:hover {
+  background-color: #f9f9f9;
+}
+
+.table_row-clickable {
+  cursor: pointer;
+}
+
+.table_row-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.table_row_darkened {
+  background-color: #f9f9f9;
+}

@@ -1,3 +1,3 @@
 describe.skip("Tab menu component", () => {
-  Test("Component renders", () => {});
+  test("Component renders", () => {});
 });

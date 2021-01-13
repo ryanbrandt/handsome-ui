@@ -1,4 +1,13 @@
-.row {
+.row_space-between {
   display: flex;
   justify-content: space-between;
+}
+
+.row_space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.row {
+  display: flex;
 }

@@ -4,7 +4,7 @@ import { AppContext } from "../../Containers";
 
 import "./index.css";
 
-type InputType = "text" | "password" | "number" | "date";
+type InputType = "text" | "search" | "password" | "number" | "date";
 
 interface Props {
   /**

@@ -1,14 +1,17 @@
 import * as React from "react";
 
+import AppContext from "../../Containers/AppContainer/AppContext";
 import { Input } from "../../Inputs";
 import { Search } from "../../Svgs";
-import { Row } from "../../Layout";
+import { Column, Row } from "../../Layout";
+import { Dropdown } from "../../Containers";
 
 import "./index.css";
 
 interface Tab {
   title: string;
   key: string;
+  active?: boolean;
 }
 
 interface Props {
@@ -17,12 +20,6 @@ interface Props {
    * These define the display value (title) and onTab argument value (key) for each tab
    */
   tabs: Array<Tab>;
-
-  /**
-   * Optional default active tab
-   * If not defined, first item in Tab array will be defaulted to
-   */
-  defaultTab?: string;
 
   /**
    * Function to be executed on selection of a tab
@@ -36,24 +33,18 @@ interface Props {
 }
 
 const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
-  const { defaultTab, tabs } = props;
-  const [activeTab, setActiveTab] = React.useState<string>(
-    defaultTab ? defaultTab : tabs[0].key
-  );
+  const { tabs } = props;
 
   const _handleTabChange = (tabKey: string): void => {
     const { onTab } = props;
 
-    setActiveTab(tabKey);
     onTab(tabKey);
   };
 
   const _renderTabs = (): React.ReactNode => {
     return tabs.map((tab) => (
       <div
-        className={
-          activeTab === tab.key ? "tab_menu_tab-active" : "tab_menu_tab"
-        }
+        className={tab.active ? "tab_menu_tab-active" : "tab_menu_tab"}
         key={tab.title}
         onClick={() => _handleTabChange(tab.key)}
       >
@@ -62,17 +53,32 @@ const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     ));
   };
 
+  const _renderMobileTabs = (): React.ReactNode => {
+    return (
+      <div className="tab_menu-dropdown-container">
+        <Dropdown heading="Filter By">
+          <Column className="tab_menu-mobile-container">{_renderTabs()}</Column>
+        </Dropdown>
+      </div>
+    );
+  };
+
   const { onSearch } = props;
 
   return (
-    <Row>
-      <div>{_renderTabs()}</div>
-      <Input
-        placeholder="Search"
-        onChange={onSearch}
-        iconLeft={<Search width={12} height={12} />}
-      />
-    </Row>
+    <AppContext.Consumer>
+      {(isMobile) => (
+        <Row>
+          <div>{isMobile ? _renderMobileTabs() : _renderTabs()}</div>
+          <Input
+            type="search"
+            placeholder="Search"
+            onChange={onSearch}
+            iconLeft={<Search width={12} height={12} />}
+          />
+        </Row>
+      )}
+    </AppContext.Consumer>
   );
 };
 

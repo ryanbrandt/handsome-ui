@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./index.css";
-declare type InputType = "text" | "password" | "number" | "date";
+declare type InputType = "text" | "search" | "password" | "number" | "date";
 interface Props {
     /**
      * Optional value, should be defined if input is controlled with onChange fn

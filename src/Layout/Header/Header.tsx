@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { AppContext } from "../../Containers";
 
-import { BurgerMenu, Chevron } from "../../Svgs";
+import { BurgerMenu } from "../../Svgs";
 import { Column } from "../../Layout";
 
 import "./index.css";
@@ -75,12 +75,9 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
     return (
       <React.Fragment>
-        <Chevron
-          className="app_menu-escape"
-          width={20}
-          height={20}
-          onClick={() => setMenuOpen(false)}
-        />
+        <div onClick={() => setMenuOpen(false)} className="app_menu-escape">
+          X
+        </div>
         <div className="app_menu-options app_menu">
           {options.map((option) => (
             <span

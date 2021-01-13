@@ -17,6 +17,10 @@ interface Props {
      * Optional string defining accepted file type (e.g. image/png)
      */
     accept?: string;
+    /**
+     * Optional error string associated with the user input
+     */
+    error?: string;
 }
 declare const FileInput: React.FunctionComponent<Props>;
 export default FileInput;

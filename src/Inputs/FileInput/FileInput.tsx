@@ -22,6 +22,11 @@ interface Props {
    * Optional string defining accepted file type (e.g. image/png)
    */
   accept?: string;
+
+  /**
+   * Optional error string associated with the user input
+   */
+  error?: string;
 }
 
 const FileInput: React.FunctionComponent<Props> = (
@@ -48,7 +53,7 @@ const FileInput: React.FunctionComponent<Props> = (
     }
   };
 
-  const { label, multiple, accept } = props;
+  const { label, multiple, accept, error } = props;
 
   return (
     <div className="file_input-container">
@@ -68,6 +73,7 @@ const FileInput: React.FunctionComponent<Props> = (
           ? `${selectedFiles.length} files selected`
           : "No files selected"}
       </p>
+      {error && <span className="file_input-error">{error}</span>}
     </div>
   );
 };

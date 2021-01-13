@@ -24,7 +24,7 @@
 .revealed {
   background-color: #506670ea;
   color: white;
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   animation: fadeIn 0.5s;
 }
 
@@ -32,7 +32,7 @@
   width: 100%;
   height: 0%;
   visibility: collapse;
-  transition: all 0.3s ease-out;
+  transition: all 0.2s ease-out;
   animation: fadeOut 0.5s;
 }
 

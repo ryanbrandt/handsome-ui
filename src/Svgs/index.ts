@@ -11,3 +11,4 @@ export { default as Trash } from "./Trash/Trash";
 export { default as Chevron } from "./Chevron/Chevron";
 export { default as WorldWideWeb } from "./WorldWideWeb/WorldWideWeb";
 export { default as Plus } from "./Plus/Plus";
+export { default as Party } from "./Party/Party";

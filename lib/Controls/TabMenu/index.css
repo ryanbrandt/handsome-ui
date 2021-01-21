@@ -9,6 +9,7 @@
   padding: 1vw;
   cursor: pointer;
   opacity: 0.5;
+  user-select: none;
 }
 
 .tab_menu_tab:hover {

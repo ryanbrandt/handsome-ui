@@ -12,21 +12,11 @@ const menuOptions = [
 ];
 
 <Header
-  menu={
-    <div
-      style={{
-        display: "flex",
-        height: "100%",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-      }}
-    >
-      {menuOptions.map((option) => (
-        <a style={{ cursor: "pointer" }} key={option.title}>
-          {option.title}
-        </a>
-      ))}
-    </div>
-  }
+  options={[
+    {
+      name: "An Option",
+      action: () => null,
+    },
+  ]}
 />;
 ```

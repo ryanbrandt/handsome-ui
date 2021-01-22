@@ -11,9 +11,9 @@ interface Props {
   children: React.ReactNode;
 
   /**
-   * Header menu to be rendered within the application container
+   * Optional header menu to be rendered within the application container
    */
-  header: React.ReactNode;
+  header?: React.ReactNode;
 
   /**
    * Global app container css class

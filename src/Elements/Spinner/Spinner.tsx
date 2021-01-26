@@ -9,7 +9,9 @@ interface Props {
   className?: string;
 }
 
-const Spinner: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Spinner: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const { className } = props;
 
   return <div className={`${className ? `${className} ` : ""}spinner`} />;

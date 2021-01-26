@@ -83,7 +83,9 @@ interface Props {
   containerStyle?: React.CSSProperties;
 }
 
-const Input: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Input: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const { iconLeft, error, disabled, className } = props;
 
   const _computeInputClassname = (): string => {

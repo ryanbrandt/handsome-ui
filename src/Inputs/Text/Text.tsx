@@ -71,7 +71,9 @@ interface Props {
   containerStyle?: React.CSSProperties;
 }
 
-const Text: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Text: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const _renderText = (): React.ReactNode => {
     const {
       value,

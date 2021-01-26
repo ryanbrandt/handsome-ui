@@ -22,7 +22,7 @@ interface Props {
 
 const Breadcrumbs: React.FunctionComponent<Props> = (
   props: Props
-): JSX.Element | null => {
+): React.ReactElement | null => {
   const { crumbs, show = true } = props;
 
   if (show) {

@@ -4,7 +4,7 @@ interface Props {
     /**
      * Content to be rendered within the badge, either a string or custom JSX
      */
-    content: string | JSX.Element;
+    content: string | React.ReactElement;
     /**
      * Optional CSS classes to apply
      */

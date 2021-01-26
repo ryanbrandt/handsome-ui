@@ -51,7 +51,9 @@ interface Props {
   selectClasses?: string;
 }
 
-const Select: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Select: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const { options, value, onChange, label, error, containerClasses } = props;
 
   const getSelectClasses = () => {

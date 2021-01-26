@@ -23,7 +23,7 @@ interface Props {
 
 const LoadingOverlay: React.FunctionComponent<Props> = (
   props: Props
-): JSX.Element | null => {
+): React.ReactElement | null => {
   const { show, message, fade } = props;
 
   let additionalStyles = "";

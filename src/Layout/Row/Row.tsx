@@ -46,7 +46,9 @@ interface Props {
   mobileStyle?: React.CSSProperties;
 }
 
-const Row: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Row: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const { children } = props;
 
   const _getVersionClassName = (version: RowVersion) => {

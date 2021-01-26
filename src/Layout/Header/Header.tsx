@@ -3,28 +3,23 @@ import * as React from "react";
 import { AppContext } from "../../Containers";
 
 import { BurgerMenu } from "../../Svgs";
-import { Column } from "../../Layout";
+import { Column, MenuOption } from "../../Layout";
 
 import "./index.css";
-
-interface HeaderOption {
-  [key: string]: any;
-  name: string;
-  action: Function;
-  active?: boolean;
-}
 
 interface Props {
   /**
    * JSX to be rendered within the menu
    */
-  options: Array<HeaderOption>;
+  options: Array<MenuOption>;
 }
 
-const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Header: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
 
-  const handleItemClick = (option: HeaderOption): void => {
+  const handleItemClick = (option: MenuOption): void => {
     const { action } = option;
 
     action();
@@ -99,7 +94,7 @@ const Header: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
 
   const _renderDefaultMenu = (): React.ReactNode => {
     return (
-      <div className="app_header header-row">
+      <div className="app_header">
         <BurgerMenu
           className={menuOpen ? "app_menu-icon-active" : "app_menu-icon"}
           onClick={() => setMenuOpen(true)}

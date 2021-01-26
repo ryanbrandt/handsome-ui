@@ -8,3 +8,4 @@ export { default as Table } from "./Table/Table";
 export { default as TableRow } from "./TableRow/TableRow";
 export { default as TableCell } from "./TableCell/TableCell";
 export { default as SideDrawer } from "./SideDrawer/SideDrawer";
+export * from "./types";

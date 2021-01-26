@@ -7,8 +7,7 @@
   height: 100%;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.4);
-  position: fixed;
-  transition: all 0.5s ease-in;
+  transition: all 0.35s ease-in;
 }
 
 .side_drawer-container-hidden {
@@ -18,14 +17,14 @@
   left: 0;
   top: 0;
   width: 100%;
+  opacity: 0;
   height: 100%;
-  z-index: 1;
-  transition: all 0.5s ease-out;
+  transition: all 0.35s ease-in-out;
 }
 
 .side_drawer-drawer {
   width: fit-content;
-  min-width: 25%;
+  min-width: 20%;
   height: 100%;
   background-color: #ffffff;
   overflow-y: auto;

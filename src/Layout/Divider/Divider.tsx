@@ -24,7 +24,9 @@ interface Props {
   vertical?: boolean;
 }
 
-const Divider: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Divider: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const _computeClassName = (): string => {
     const { solid, vertical, className } = props;
     let classes: Array<string> = new Array<string>();

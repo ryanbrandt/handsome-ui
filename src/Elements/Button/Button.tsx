@@ -43,7 +43,9 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-const Button: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Button: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const getButtonClass = () => {
     const { inverting, round, disabled, className } = props;
 

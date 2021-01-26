@@ -32,7 +32,9 @@ interface Props {
   onSearch: (query: string) => void;
 }
 
-const TabMenu: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const TabMenu: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const { tabs } = props;
 
   const _handleTabChange = (tabKey: string): void => {

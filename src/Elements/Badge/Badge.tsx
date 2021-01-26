@@ -8,7 +8,7 @@ interface Props {
   /**
    * Content to be rendered within the badge, either a string or custom JSX
    */
-  content: string | JSX.Element;
+  content: string | React.ReactElement;
 
   /**
    * Optional CSS classes to apply
@@ -21,7 +21,9 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-const Badge: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Badge: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const _renderContent = (): React.ReactNode => {
     const { content } = props;
 

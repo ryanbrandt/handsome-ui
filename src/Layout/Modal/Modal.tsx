@@ -31,7 +31,9 @@ interface Props {
   modalClassName?: string;
 }
 
-const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Modal: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const topDivRef = React.createRef<HTMLDivElement>();
 
   const { open } = props;
@@ -72,7 +74,10 @@ const Modal: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
     >
       <div
         ref={topDivRef}
-        className={combineClassNames("modal_modal", modalClassName)}
+        className={combineClassNames(
+          "modal_modal handsome_scroll",
+          modalClassName
+        )}
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
         <div className="modal_close" onClick={() => onClose()}>

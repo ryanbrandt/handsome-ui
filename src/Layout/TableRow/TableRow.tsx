@@ -38,7 +38,7 @@ interface Props {
 
 const TableRow: React.FunctionComponent<Props> = (
   props: Props
-): JSX.Element => {
+): React.ReactElement => {
   const { children, onClick, darkened, disabled, className, style } = props;
 
   let classes = ["table_row"];

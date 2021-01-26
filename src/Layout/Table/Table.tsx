@@ -14,7 +14,7 @@ interface Props {
   /**
    * Children (e.g. TableRow) to be rendered within table
    */
-  children: React.ReactNode | Array<React.ReactNode | JSX.Element>;
+  children: React.ReactNode | Array<React.ReactNode | React.ReactElement>;
 
   /**
    * Optional additional CSS class to apply
@@ -27,7 +27,9 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-const Table: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Table: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const _renderHeader = (header: string | React.ReactNode, i: number) => {
     if (typeof header === "string") {
       return (

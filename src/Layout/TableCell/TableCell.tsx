@@ -25,7 +25,7 @@ interface Props {
 
 const TableCell: React.FunctionComponent<Props> = (
   props: Props
-): JSX.Element => {
+): React.ReactElement => {
   const { children, className, style } = props;
 
   return (

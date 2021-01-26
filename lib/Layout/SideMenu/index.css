@@ -1,0 +1,20 @@
+.sidemenu_container {
+  padding: 25px 0px 25px 0px;
+}
+
+.sidemenu_option {
+  cursor: pointer;
+  padding: 10px 0px 10px 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.sidemenu_option-content {
+  padding: 25px 0px 25px 0px;
+  font-size: 24px;
+}
+
+.sidemenu_option-active {
+  opacity: 0.5;
+  pointer-events: none;
+}

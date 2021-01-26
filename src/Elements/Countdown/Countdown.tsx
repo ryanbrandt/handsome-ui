@@ -31,7 +31,7 @@ interface Props {
 
 const Countdown: React.FunctionComponent<Props> = (
   props: Props
-): JSX.Element => {
+): React.ReactElement => {
   const { initialCount } = props;
 
   const [count, setCount] = useState<number>(initialCount);

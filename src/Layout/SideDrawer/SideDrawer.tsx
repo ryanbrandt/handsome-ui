@@ -28,7 +28,7 @@ interface Props {
 
 const SideDrawer: React.FunctionComponent<Props> = (
   props: Props
-): JSX.Element => {
+): React.ReactElement => {
   const { visible, onClose } = props;
 
   const handleForegroundClick = (
@@ -44,7 +44,7 @@ const SideDrawer: React.FunctionComponent<Props> = (
     const { side } = props;
     let drawerClassName = "side_drawer-drawer-hidden";
     if (visible) {
-      drawerClassName = "side_drawer-drawer";
+      drawerClassName = "side_drawer-drawer handsome_scroll";
     }
 
     let sideModifier = "drawer-left";

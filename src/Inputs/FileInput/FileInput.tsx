@@ -31,7 +31,7 @@ interface Props {
 
 const FileInput: React.FunctionComponent<Props> = (
   props: Props
-): JSX.Element => {
+): React.ReactElement => {
   const [selectedFiles, setSelectedFiles] = React.useState<Array<File>>(
     new Array<File>()
   );

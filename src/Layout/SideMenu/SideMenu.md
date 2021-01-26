@@ -1,8 +1,7 @@
-Simple styled header than can be responsive with a manged mobile prop
+Retractable sidebar menu
 
 ```tsx
-import Header from "./Header";
-
+import SideMenu from "./SideMenu";
 const menuOptions = [
   { name: "Home", path: "/", action: () => null, active: true },
   { name: "Resumé", path: "/resumé", action: () => null },
@@ -11,5 +10,5 @@ const menuOptions = [
   { name: "Blog", path: "/blog", action: () => null },
 ];
 
-<Header options={menuOptions} />;
+<SideMenu options={menuOptions} />;
 ```

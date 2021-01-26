@@ -1,6 +1,6 @@
 Master application container.
 
-Includes header.
+Optionally includes header.
 
 Maintains mobile/not-mobile state with React context so you don't have to worry about making your app responsive.
 
@@ -8,17 +8,17 @@ Maintains mobile/not-mobile state with React context so you don't have to worry 
 import AppContainer from "./AppContainer";
 import Header from "../../Layout/Header/Header";
 
-const headerOptions = [
-  { name: "Home", action: () => null },
-  { name: "Resumé", action: () => null },
-  { name: "Work", action: () => null },
-  { name: "Contact", action: () => null },
-  { name: "Blog", action: () => null },
+const menuOptions = [
+  { name: "Home", path: "/", action: () => null, active: true },
+  { name: "Resumé", path: "/resumé", action: () => null },
+  { name: "Work", path: "/work", action: () => null },
+  { name: "Contact", path: "/contact", action: () => null },
+  { name: "Blog", path: "/blog", action: () => null },
 ];
 
 <AppContainer
   style={{ margin: "25px" }}
-  header={<Header options={headerOptions} defaultActive="Home" />}
+  header={<Header options={menuOptions} defaultActive="Home" />}
 >
   Your app here
 </AppContainer>;

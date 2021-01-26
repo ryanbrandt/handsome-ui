@@ -19,7 +19,9 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-const Column: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
+const Column: React.FunctionComponent<Props> = (
+  props: Props
+): React.ReactElement => {
   const { children, className, style } = props;
 
   return (

@@ -9,7 +9,7 @@ interface Props {
     /**
      * Children (e.g. TableRow) to be rendered within table
      */
-    children: React.ReactNode | Array<React.ReactNode | JSX.Element>;
+    children: React.ReactNode | Array<React.ReactNode | React.ReactElement>;
     /**
      * Optional additional CSS class to apply
      */

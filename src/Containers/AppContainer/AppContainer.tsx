@@ -28,7 +28,7 @@ interface Props {
 
 const AppContainer: React.FunctionComponent<Props> = (
   props: Props
-): JSX.Element => {
+): React.ReactElement => {
   const { children, header, className, style } = props;
 
   const [isMobile, setIsMobile] = React.useState<boolean>(false);

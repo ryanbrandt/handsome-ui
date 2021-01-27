@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, { shallow } from "enzyme";
+import Enzyme, { mount, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 
 import AppContainer from "./AppContainer";
@@ -67,5 +67,29 @@ describe("App container", () => {
     expect(getContainerDiv(wrapper).get(0).props.style).toEqual(MOCK_STYLES);
   });
 
-  test.skip("Component maintains mobile context", () => {});
+  test("Component adds resize listener on mount, and removes on unmount", () => {
+    const EXPECTED_EVENT = "resize";
+
+    let events = new Array<EventListenerOrEventListenerObject>();
+
+    jest
+      .spyOn(window, "addEventListener")
+      .mockImplementation((event, handle, options?) => {
+        events[event] = handle;
+      });
+
+    jest
+      .spyOn(window, "removeEventListener")
+      .mockImplementation((event, handle, options?) => {
+        events[event] = undefined;
+      });
+
+    const wrapper = mount(<AppContainer>{MOCK_CHILDREN}</AppContainer>);
+
+    expect(events[EXPECTED_EVENT]).toBeDefined();
+
+    wrapper.unmount();
+
+    expect(events[EXPECTED_EVENT]).toBeUndefined();
+  });
 });

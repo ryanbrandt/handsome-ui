@@ -1,7 +1,7 @@
 module.exports = {
   components: "./src/**/*.tsx",
   verbose: true,
-  title: "Handsome UI Style Guide",
+  title: "Handsome UI Component Guide",
   usageMode: "expand",
   webpackConfig: {
     module: {

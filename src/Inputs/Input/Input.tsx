@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { AppContext } from "../../Containers";
+import { combineClassNames } from "../../utils/helpers";
 
 import "./index.css";
 
@@ -111,6 +112,7 @@ const Input: React.FunctionComponent<Props> = (
 
     return classes.join(" ");
   };
+
   const _renderInput = (): React.ReactNode => {
     const {
       value,
@@ -137,7 +139,7 @@ const Input: React.FunctionComponent<Props> = (
           className={_computeInputClassname()}
           style={style}
           type={type ? type : "text"}
-          placeholder={placeholder ? placeholder : ""}
+          placeholder={placeholder ? placeholder : undefined}
           onChange={
             onChange
               ? (e: React.FormEvent<HTMLInputElement>) =>
@@ -168,9 +170,7 @@ const Input: React.FunctionComponent<Props> = (
 
     return (
       <div
-        className={`${
-          containerClassName ? `${containerClassName} ` : ""
-        }${className}`}
+        className={combineClassNames(className, containerClassName)}
         style={containerStyle}
       >
         {label && <label className="input_label">{label}</label>}

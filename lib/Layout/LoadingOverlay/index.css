@@ -22,18 +22,16 @@
 }
 
 .revealed {
-  background-color: #506670ea;
-  color: white;
-  transition: all 0.2s ease-in;
-  animation: fadeIn 0.5s;
+  backdrop-filter: blur(1.25px);
+  background-color: rgba(148, 141, 141, 0.397);
+  color: #506670ea;
 }
 
 .hidden {
   width: 100%;
   height: 0%;
   visibility: collapse;
-  transition: all 0.2s ease-out;
-  animation: fadeOut 0.5s;
+  transition: all 0.25s;
 }
 
 @keyframes fadeIn {

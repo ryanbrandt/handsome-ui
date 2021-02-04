@@ -57,9 +57,11 @@ const SideMenu: React.FunctionComponent<Props> = (
         />
       </div>
       <SideDrawer onClose={() => setOpen(false)} visible={open}>
-        <div className="sidemenu_container">
-          <div className="handsome_flex-center-col">{_renderOptions()}</div>
-        </div>
+        {open && (
+          <div className="sidemenu_container">
+            <div className="handsome_flex-center-col">{_renderOptions()}</div>
+          </div>
+        )}
       </SideDrawer>
     </React.Fragment>
   );

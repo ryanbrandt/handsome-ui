@@ -55,9 +55,10 @@ body {
   outline: 1px solid slategrey;
 }
 
-/**
+/********************
 * COMMON FLEX MODIFIERS
-**/
+*********************/
+
 .handsome_flex-justify-center {
   display: flex;
   justify-content: center;
@@ -81,9 +82,10 @@ body {
   flex-direction: column;
 }
 
-/**
+/*********************
 * COMMON STYLES
-**/
+*********************/
+
 .handsome_inverting {
   background-color: initial;
   color: initial;

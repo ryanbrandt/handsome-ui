@@ -16,7 +16,7 @@ interface Props {
   /**
    * Text to display on the dropdown or JSX to render
    */
-  heading: string | React.ReactNode;
+  heading?: string | React.ReactNode;
 
   /**
    * Optional flag to set initial state to open; defaults to closed
@@ -93,12 +93,9 @@ class Dropdown extends React.Component<Props, State> {
       );
 
     return (
-      <div className="dropdown_container">
+      <div className="dropdown_container" onClick={this._handleToggle}>
         {dividerTop && <Divider className="dropdown_container_divider_top" />}
-        <div
-          className="dropdown_container_masthead"
-          onClick={this._handleToggle}
-        >
+        <div className="dropdown_container_masthead">
           {header}
           <Chevron
             width={15}

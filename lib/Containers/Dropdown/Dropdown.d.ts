@@ -8,7 +8,7 @@ interface Props {
     /**
      * Text to display on the dropdown or JSX to render
      */
-    heading: string | React.ReactNode;
+    heading?: string | React.ReactNode;
     /**
      * Optional flag to set initial state to open; defaults to closed
      */

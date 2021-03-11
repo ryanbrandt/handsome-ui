@@ -109,9 +109,12 @@ class Dropdown extends React.Component<Props, State> {
       );
 
     return (
-      <div className="dropdown_container" onClick={this._handleToggle}>
+      <div className="dropdown_container">
         {dividerTop && <Divider className="dropdown_container_divider_top" />}
-        <div className="dropdown_container_masthead">
+        <div
+          className="dropdown_container_masthead"
+          onClick={this._handleToggle}
+        >
           {header}
           <Chevron
             width={15}

@@ -22,8 +22,9 @@
 }
 
 .side_drawer-drawer {
-  width: fit-content;
-  min-width: 20%;
+  width: 30%;
+  flex-wrap: wrap;
+  max-width: 600px;
   height: 100%;
   background-color: #ffffff;
   overflow-y: auto;

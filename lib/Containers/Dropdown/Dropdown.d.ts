@@ -6,6 +6,10 @@ interface Props {
      */
     children: React.ReactNode;
     /**
+     * Optional function to execute on open
+     */
+    onOpen?: Function;
+    /**
      * Text to display on the dropdown or JSX to render
      */
     heading?: string | React.ReactNode;

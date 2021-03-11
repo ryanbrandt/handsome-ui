@@ -46,6 +46,26 @@ describe("Dropdown component", () => {
     expect(getContentDiv(wrapper).hasClass(OPEN_CLASS)).toBeTruthy();
   });
 
+  test("Executes onOpen function on open click", () => {
+    const mockFn = jest.fn();
+
+    const wrapper = shallow(
+      <Dropdown onOpen={mockFn}>{MOCK_CHILDREN}</Dropdown>
+    );
+
+    wrapper.simulate("click");
+
+    expect(mockFn).toHaveBeenCalledTimes(1);
+
+    wrapper.simulate("click");
+
+    expect(mockFn).toHaveBeenCalledTimes(1);
+
+    wrapper.simulate("click");
+
+    expect(mockFn).toHaveBeenCalledTimes(2);
+  });
+
   test("Renders heading string", () => {
     const MOCK_HEADING = "Heading";
     const wrapper = shallow(

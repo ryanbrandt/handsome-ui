@@ -9,8 +9,6 @@ import "./index.css";
 
 interface Props {
   options: Array<MenuOption>;
-
-  open: boolean;
 }
 
 const SideMenu: React.FunctionComponent<Props> = (

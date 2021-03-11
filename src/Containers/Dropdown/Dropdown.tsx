@@ -14,6 +14,11 @@ interface Props {
   children: React.ReactNode;
 
   /**
+   * Optional function to execute on open
+   */
+  onOpen?: Function;
+
+  /**
    * Text to display on the dropdown or JSX to render
    */
   heading?: string | React.ReactNode;
@@ -60,11 +65,22 @@ class Dropdown extends React.Component<Props, State> {
   }
 
   _handleToggle = (): void => {
-    this.setState((prevState: State) => {
-      const { open } = prevState;
+    const { onOpen } = this.props;
 
-      return { open: !open };
-    });
+    this.setState(
+      (prevState: State) => {
+        const { open } = prevState;
+
+        return { open: !open };
+      },
+      () => {
+        const { open } = this.state;
+
+        if (onOpen && open) {
+          onOpen();
+        }
+      }
+    );
   };
 
   render() {

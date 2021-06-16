@@ -12,7 +12,7 @@
 .dropdown-open {
   max-height: 100vh;
   visibility: visible;
-  overflow: auto;
+  overflow: hidden;
   transition: all 0.25s ease-in;
 }
 

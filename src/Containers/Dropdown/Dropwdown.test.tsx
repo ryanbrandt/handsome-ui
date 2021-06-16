@@ -36,11 +36,12 @@ describe("Dropdown component", () => {
 
   test("Opens and closes on click", () => {
     const wrapper = shallow(<Dropdown>{MOCK_CHILDREN}</Dropdown>);
+    const masthead = wrapper.find("div").at(1);
 
     expect(getContentDiv(wrapper).hasClass(CLOSE_CLASS)).toBeTruthy();
     expect(getContentDiv(wrapper).hasClass(OPEN_CLASS)).toBeFalsy();
 
-    wrapper.simulate("click");
+    masthead.simulate("click");
 
     expect(getContentDiv(wrapper).hasClass(CLOSE_CLASS)).toBeFalsy();
     expect(getContentDiv(wrapper).hasClass(OPEN_CLASS)).toBeTruthy();
@@ -53,15 +54,17 @@ describe("Dropdown component", () => {
       <Dropdown onOpen={mockFn}>{MOCK_CHILDREN}</Dropdown>
     );
 
-    wrapper.simulate("click");
+    const masthead = wrapper.find("div").at(1);
+
+    masthead.simulate("click");
 
     expect(mockFn).toHaveBeenCalledTimes(1);
 
-    wrapper.simulate("click");
+    masthead.simulate("click");
 
     expect(mockFn).toHaveBeenCalledTimes(1);
 
-    wrapper.simulate("click");
+    masthead.simulate("click");
 
     expect(mockFn).toHaveBeenCalledTimes(2);
   });
@@ -86,11 +89,12 @@ describe("Dropdown component", () => {
 
   test("Respects defaultOpen prop", () => {
     const wrapper = shallow(<Dropdown defaultOpen>{MOCK_CHILDREN}</Dropdown>);
+    const masthead = wrapper.find("div").at(1);
 
     expect(getContentDiv(wrapper).hasClass(OPEN_CLASS)).toBeTruthy();
     expect(getContentDiv(wrapper).hasClass(CLOSE_CLASS)).toBeFalsy();
 
-    wrapper.simulate("click");
+    masthead.simulate("click");
 
     expect(getContentDiv(wrapper).hasClass(OPEN_CLASS)).toBeFalsy();
     expect(getContentDiv(wrapper).hasClass(CLOSE_CLASS)).toBeTruthy();

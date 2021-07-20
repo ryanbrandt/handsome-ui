@@ -2,8 +2,6 @@ import * as React from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 interface Props {
   /**
    * Content to be rendered within the badge, either a string or custom JSX

@@ -1,0 +1,30 @@
+.tab_menu {
+  &-active {
+    display: inline-block;
+    padding: 1vw;
+    pointer-events: none;
+  }
+
+  &_tab {
+    display: inline-block;
+    padding: 1vw;
+    cursor: pointer;
+    opacity: 0.5;
+    user-select: none;
+
+    &:hover {
+      opacity: 1;
+      transition: 0.5s;
+    }
+  }
+
+  &-dropdown-container {
+    margin-top: 15px;
+  }
+
+  &-mobile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

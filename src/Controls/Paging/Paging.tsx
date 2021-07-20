@@ -3,8 +3,6 @@ import * as React from "react";
 import { Chevron } from "../../Svgs";
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 interface Props {
   /**
    * Function to execute on "next" page click

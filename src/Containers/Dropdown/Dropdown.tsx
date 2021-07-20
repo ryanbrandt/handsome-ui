@@ -5,8 +5,6 @@ import { combineClassNames } from "../../utils/helpers";
 import { Chevron } from "../../Svgs";
 import { Divider } from "../../Layout";
 
-import "./index.css";
-
 interface Props {
   /**
    * Children to be rendered within the open dropdown container

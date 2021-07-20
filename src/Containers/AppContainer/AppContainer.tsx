@@ -2,8 +2,6 @@ import * as React from "react";
 
 import AppContext from "./AppContext";
 
-import "../../global.css";
-
 interface Props {
   /**
    * Children to be rendered within the app

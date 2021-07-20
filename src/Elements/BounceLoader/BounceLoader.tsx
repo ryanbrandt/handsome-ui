@@ -2,8 +2,6 @@ import * as React from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 interface Props {
   /**
    * Optional custom CSS classes

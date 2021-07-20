@@ -1,5 +1,6 @@
 module.exports = {
   components: "./src/**/*.tsx",
+  require: ["./src/index.scss"],
   verbose: true,
   title: "Handsome UI Component Guide",
   usageMode: "expand",
@@ -12,8 +13,12 @@ module.exports = {
           loader: "babel-loader",
         },
         {
-          test: /\.css$/,
-          use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+          test: /\.(css|scss)$/,
+          use: [
+            { loader: "style-loader" },
+            { loader: "css-loader" },
+            { loader: "sass-loader" },
+          ],
         },
         {
           test: /\.(woff|woff2)$/,

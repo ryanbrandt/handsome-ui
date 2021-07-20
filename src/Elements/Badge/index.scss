@@ -1,0 +1,12 @@
+.badge {
+  &_badge {
+    padding: 15px;
+    border-radius: 10px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #506670c5;
+  }
+}

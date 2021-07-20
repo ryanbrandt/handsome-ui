@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import "./index.css";
-
 interface Props {
   /**
    * Children to be rendered within the column

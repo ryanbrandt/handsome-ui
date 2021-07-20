@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./index.css";
 export declare type RowVersion = "default" | "space-between" | "space-evenly";
 interface Props {
     /**

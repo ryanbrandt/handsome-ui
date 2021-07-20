@@ -4,8 +4,6 @@ import Column from "../Column/Column";
 import { AppContext } from "../../Containers";
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 export type RowVersion = "default" | "space-between" | "space-evenly";
 
 interface Props {

@@ -3,8 +3,6 @@ import * as React from "react";
 import { AppContext } from "../../Containers";
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 interface Props {
   /**
    * Optional value, should be defined if textarea is controlled with onChange fn

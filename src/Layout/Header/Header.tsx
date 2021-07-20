@@ -4,9 +4,6 @@ import { AppContext } from "../../Containers";
 
 import { BurgerMenu } from "../../Svgs";
 import { Column, MenuOption } from "../../Layout";
-
-import "./index.css";
-
 interface Props {
   /**
    * JSX to be rendered within the menu

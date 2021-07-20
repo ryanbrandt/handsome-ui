@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./index.css";
 interface Props {
     /**
      * Optional children to be rendered within table cell

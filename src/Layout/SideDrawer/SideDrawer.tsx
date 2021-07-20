@@ -2,8 +2,6 @@ import * as React from "react";
 
 import AppContext from "../../Containers/AppContainer/AppContext";
 
-import "./index.css";
-
 interface Props {
   /**
    * Flag controlling visibility of the side drawer

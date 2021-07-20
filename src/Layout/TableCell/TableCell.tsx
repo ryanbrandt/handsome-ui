@@ -2,8 +2,6 @@ import * as React from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 interface Props {
   /**
    * Optional children to be rendered within table cell

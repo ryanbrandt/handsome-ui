@@ -1,6 +1,13 @@
 $handsome-gray: #506670ea;
+$handsome-error: rgba(255, 0, 0, 0.616);
 
 .handsome {
+  &_error {
+    font-size: 13px;
+    color: $handsome-error;
+    font-style: italic;
+  }
+
   &_scroll {
     &::-webkit-scrollbar {
       width: 0.4em;

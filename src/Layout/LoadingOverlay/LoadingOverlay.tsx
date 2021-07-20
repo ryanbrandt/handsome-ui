@@ -2,8 +2,6 @@ import * as React from "react";
 
 import { Spinner } from "../../Elements";
 
-import "./index.css";
-
 interface Props {
   /**
    * Flag to toggle showing/hiding overlay

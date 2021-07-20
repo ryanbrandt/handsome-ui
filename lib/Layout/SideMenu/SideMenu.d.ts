@@ -1,6 +1,5 @@
 import * as React from "react";
 import { MenuOption } from "../types";
-import "./index.css";
 interface Props {
     options: Array<MenuOption>;
 }

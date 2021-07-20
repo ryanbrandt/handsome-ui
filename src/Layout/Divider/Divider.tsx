@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import "./index.css";
-
 interface Props {
   /**
    * Optional additional CSS classes to be applied to the divider

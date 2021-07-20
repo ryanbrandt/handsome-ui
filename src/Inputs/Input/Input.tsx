@@ -3,8 +3,6 @@ import * as React from "react";
 import { AppContext } from "../../Containers";
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 type InputType = "text" | "search" | "password" | "number" | "date";
 
 interface Props {
@@ -178,6 +176,7 @@ const Input: React.FunctionComponent<Props> = (
       </div>
     );
   };
+
   return (
     <AppContext.Consumer>
       {(isMobile) => _renderInputContainer(isMobile)}

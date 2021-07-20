@@ -5,8 +5,6 @@ import { MenuOption } from "../types";
 import SideDrawer from "../SideDrawer/SideDrawer";
 import { BurgerMenu } from "../../Svgs";
 
-import "./index.css";
-
 interface Props {
   options: Array<MenuOption>;
 }

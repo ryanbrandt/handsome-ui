@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./index.css";
 interface Props {
     /**
      * Content to be rendered within the badge, either a string or custom JSX

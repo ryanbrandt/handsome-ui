@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./index.css";
 interface Props {
     /**
      * Flag controlling visibility of the side drawer

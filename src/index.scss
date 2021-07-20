@@ -5,6 +5,23 @@
 @import "./Elements/Button/index.scss";
 @import "./Elements/Spinner/index.scss";
 
+@import "./Inputs/FileInput/index.scss";
+@import "./Inputs/Input/index.scss";
+@import "./Inputs/Select/index.scss";
+@import "./Inputs/Text/index.scss";
+
+@import "./Layout/Column/index.scss";
+@import "./Layout/Divider/index.scss";
+@import "./Layout/Header/index.scss";
+@import "./Layout/LoadingOverlay/index.scss";
+@import "./Layout/Modal/index.scss";
+@import "./Layout/Row/index.scss";
+@import "./Layout/SideDrawer/index.scss";
+@import "./Layout/SideMenu/index.scss";
+@import "./Layout/Table/index.scss";
+@import "./Layout/TableCell/index.scss";
+@import "./Layout/TableRow/index.scss";
+
 @import "./Containers/Dropdown/index.scss";
 
 @import "./Controls/Breadcrumbs/index.scss";

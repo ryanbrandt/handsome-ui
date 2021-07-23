@@ -1,0 +1,20 @@
+@import "../../common.scss";
+
+.breadcrumb {
+  &-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &-divider {
+    font-weight: 100;
+    color: $handsome-gray;
+    opacity: 0.5;
+    padding: 5px;
+  }
+
+  &-crumb {
+    cursor: pointer;
+  }
+}

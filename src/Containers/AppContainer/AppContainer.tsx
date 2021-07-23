@@ -1,8 +1,7 @@
 import * as React from "react";
+import { useIsMobile } from "../../hooks";
 
 import AppContext from "./AppContext";
-
-import "../../global.css";
 
 interface Props {
   /**
@@ -31,22 +30,7 @@ const AppContainer: React.FunctionComponent<Props> = (
 ): React.ReactElement => {
   const { children, header, className, style } = props;
 
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    _handleResize();
-    window.addEventListener("resize", _handleResize);
-
-    return () => window.removeEventListener("resize", _handleResize);
-  }, []);
-
-  const _handleResize = (): void => {
-    if (window.innerWidth < 1024) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
+  const isMobile = useIsMobile();
 
   return (
     <AppContext.Provider value={isMobile}>

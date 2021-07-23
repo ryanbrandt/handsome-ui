@@ -7,6 +7,7 @@ import Breadcrumbs from "./Breadcrumbs.tsx";
   crumbs={[
     { title: "foo", action: () => null },
     { title: "bar", action: () => null },
+    { title: "ding", disabled: true },
   ]}
 />;
 ```

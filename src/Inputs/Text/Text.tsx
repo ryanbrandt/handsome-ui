@@ -1,8 +1,7 @@
 import * as React from "react";
 
 import { AppContext } from "../../Containers";
-
-import "./index.css";
+import { combineClassNames } from "../../utils/helpers";
 
 interface Props {
   /**
@@ -106,7 +105,7 @@ const Text: React.FunctionComponent<Props> = (
     return (
       <textarea
         placeholder={placeholder}
-        className={`${className ? `${className} ` : ""}${baseClass}`}
+        className={combineClassNames(baseClass, className)}
         style={style}
         onChange={
           onChange
@@ -136,15 +135,13 @@ const Text: React.FunctionComponent<Props> = (
 
     return (
       <div
-        className={`${
-          containerClassName ? `${containerClassName} ` : ""
-        }${className}`}
+        className={combineClassNames(className, containerClassName)}
         style={containerStyle}
       >
         {label && <label className="text_label">{label}</label>}
         {_renderText()}
-        {help && <label className="text_help">{help}</label>}
-        {error && <label className="text_error">{error}</label>}
+        {help && <span className="text_help">{help}</span>}
+        {error && <span className="text_error">{error}</span>}
       </div>
     );
   };

@@ -1,20 +1,19 @@
 import * as React from "react";
-import "./index.css";
-export declare enum RowVersionOptions {
-    "default" = 0,
-    "space-between" = 1,
-    "space-evenly" = 2
-}
-export declare type RowVersion = RowVersionOptions;
+export declare type RowVersion = "default" | "space-between" | "space-evenly";
 interface Props {
+    /**
+     * Children to be rendered within row
+     */
+    children: React.ReactNode;
     /**
      * Optional flex row version
      */
     version?: RowVersion;
     /**
-     * Children to be rendered within row
+     * Optional flag specifying if row is mobile-responsive
+     * Defaults to true
      */
-    children: React.ReactNode;
+    responsive?: boolean;
     /**
      * Optional additional CSS classes
      */

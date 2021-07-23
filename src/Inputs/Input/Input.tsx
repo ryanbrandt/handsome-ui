@@ -1,8 +1,7 @@
 import * as React from "react";
 
 import { AppContext } from "../../Containers";
-
-import "./index.css";
+import { combineClassNames } from "../../utils/helpers";
 
 type InputType = "text" | "search" | "password" | "number" | "date";
 
@@ -111,6 +110,7 @@ const Input: React.FunctionComponent<Props> = (
 
     return classes.join(" ");
   };
+
   const _renderInput = (): React.ReactNode => {
     const {
       value,
@@ -137,7 +137,7 @@ const Input: React.FunctionComponent<Props> = (
           className={_computeInputClassname()}
           style={style}
           type={type ? type : "text"}
-          placeholder={placeholder ? placeholder : ""}
+          placeholder={placeholder ? placeholder : undefined}
           onChange={
             onChange
               ? (e: React.FormEvent<HTMLInputElement>) =>
@@ -168,9 +168,7 @@ const Input: React.FunctionComponent<Props> = (
 
     return (
       <div
-        className={`${
-          containerClassName ? `${containerClassName} ` : ""
-        }${className}`}
+        className={combineClassNames(className, containerClassName)}
         style={containerStyle}
       >
         {label && <label className="input_label">{label}</label>}
@@ -178,6 +176,7 @@ const Input: React.FunctionComponent<Props> = (
       </div>
     );
   };
+
   return (
     <AppContext.Consumer>
       {(isMobile) => _renderInputContainer(isMobile)}

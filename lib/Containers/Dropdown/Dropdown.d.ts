@@ -1,14 +1,17 @@
 import * as React from "react";
-import "./index.css";
 interface Props {
     /**
      * Children to be rendered within the open dropdown container
      */
     children: React.ReactNode;
     /**
+     * Optional function to execute on open
+     */
+    onOpen?: Function;
+    /**
      * Text to display on the dropdown or JSX to render
      */
-    heading: string | React.ReactNode;
+    heading?: string | React.ReactNode;
     /**
      * Optional flag to set initial state to open; defaults to closed
      */

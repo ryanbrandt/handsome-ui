@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./index.css";
 interface Props {
     /**
      * Optional value, should be defined if textarea is controlled with onChange fn

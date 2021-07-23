@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: cypress/base:10.18.1
+      - image: node:latest
         environment:
           TERM: xterm
           TZ: "America/New_York"

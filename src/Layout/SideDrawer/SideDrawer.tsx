@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./index.css";
+import AppContext from "../../Containers/AppContainer/AppContext";
 
 interface Props {
   /**
@@ -29,6 +29,8 @@ interface Props {
 const SideDrawer: React.FunctionComponent<Props> = (
   props: Props
 ): React.ReactElement => {
+  const isMobile = React.useContext(AppContext);
+
   const { visible, onClose } = props;
 
   const handleForegroundClick = (
@@ -44,7 +46,12 @@ const SideDrawer: React.FunctionComponent<Props> = (
     const { side } = props;
     let drawerClassName = "side_drawer-drawer-hidden";
     if (visible) {
-      drawerClassName = "side_drawer-drawer handsome_scroll";
+      let mobileModifier = "";
+      if (isMobile) {
+        mobileModifier = "-mobile";
+      }
+
+      drawerClassName = `side_drawer-drawer${mobileModifier} handsome_scroll`;
     }
 
     let sideModifier = "drawer-left";
@@ -56,7 +63,7 @@ const SideDrawer: React.FunctionComponent<Props> = (
   };
 
   const _renderCloseButton = (): React.ReactNode => {
-    if (onClose) {
+    if (onClose && visible) {
       return (
         <div onClick={() => onClose()} className="side_drawer-close-btn">
           X
@@ -69,9 +76,10 @@ const SideDrawer: React.FunctionComponent<Props> = (
 
   const { children } = props;
 
-  const containerClassName = visible
-    ? "side_drawer-container"
-    : "side_drawer-container-hidden";
+  let containerClassName = "side_drawer-container-hidden";
+  if (visible) {
+    containerClassName = "side_drawer-container";
+  }
 
   const foregroundClickFn = visible ? handleForegroundClick : undefined;
 

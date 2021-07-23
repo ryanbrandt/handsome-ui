@@ -2,8 +2,6 @@ import * as React from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 interface Props {
   /**
    * Flag that toggles modal visibility
@@ -33,7 +31,7 @@ interface Props {
 
 const Modal: React.FunctionComponent<Props> = (
   props: Props
-): React.ReactElement => {
+): React.ReactElement | null => {
   const topDivRef = React.createRef<HTMLDivElement>();
 
   const { open } = props;
@@ -67,29 +65,30 @@ const Modal: React.FunctionComponent<Props> = (
 
   const { modalClassName, onClose, children } = props;
 
-  return (
-    <div
-      className={`modal_container ${!open ? "modal_closed" : ""}`}
-      onClick={() => onClose()}
-    >
-      <div
-        ref={topDivRef}
-        className={combineClassNames(
-          "modal_modal handsome_scroll",
-          modalClassName
-        )}
-        onClick={(e: React.MouseEvent) => e.stopPropagation()}
-      >
-        <div className="modal_close" onClick={() => onClose()}>
-          close
-        </div>
-        <div className="modal_inner">
-          {renderHeading()}
-          <div className="modal_modal_content">{children}</div>
+  if (open) {
+    return (
+      <div className="modal_container" onClick={() => onClose()}>
+        <div
+          ref={topDivRef}
+          className={combineClassNames(
+            "modal_modal handsome_scroll",
+            modalClassName
+          )}
+          onClick={(e: React.MouseEvent) => e.stopPropagation()}
+        >
+          <div className="modal_close" onClick={() => onClose()}>
+            close
+          </div>
+          <div className="modal_inner">
+            {renderHeading()}
+            <div className="modal_modal_content">{children}</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return null;
 };
 
 export default Modal;

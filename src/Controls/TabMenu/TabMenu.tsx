@@ -6,8 +6,6 @@ import { Search } from "../../Svgs";
 import { Column, Row } from "../../Layout";
 import { Dropdown } from "../../Containers";
 
-import "./index.css";
-
 interface Tab {
   title: string;
   key: string;

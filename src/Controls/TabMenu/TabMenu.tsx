@@ -68,7 +68,7 @@ const TabMenu: React.FunctionComponent<Props> = (
   return (
     <AppContext.Consumer>
       {(isMobile) => (
-        <Row>
+        <Row version="space-between">
           <div>{isMobile ? _renderMobileTabs() : _renderTabs()}</div>
           <Input
             type="search"

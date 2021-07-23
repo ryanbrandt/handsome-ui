@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { AppContext } from "../../Containers";
+import { useIsMobile } from "../../hooks";
+
 import { combineClassNames } from "../../utils/helpers";
 
 type InputType = "text" | "search" | "password" | "number" | "date";
@@ -158,29 +159,23 @@ const Input: React.FunctionComponent<Props> = (
     );
   };
 
-  const _renderInputContainer = (isMobile: boolean): React.ReactNode => {
-    const { containerClassName, containerStyle, label } = props;
+  const isMobile = useIsMobile();
 
-    let className = "input_container";
-    if (isMobile) {
-      className = "input_container_mobile";
-    }
+  const { containerClassName, containerStyle, label } = props;
 
-    return (
-      <div
-        className={combineClassNames(className, containerClassName)}
-        style={containerStyle}
-      >
-        {label && <label className="input_label">{label}</label>}
-        {_renderInput()}
-      </div>
-    );
-  };
+  let baseClass = "input_container";
+  if (isMobile) {
+    baseClass = "input_container_mobile";
+  }
 
   return (
-    <AppContext.Consumer>
-      {(isMobile) => _renderInputContainer(isMobile)}
-    </AppContext.Consumer>
+    <div
+      className={combineClassNames(baseClass, containerClassName)}
+      style={containerStyle}
+    >
+      {label && <label className="input_label">{label}</label>}
+      {_renderInput()}
+    </div>
   );
 };
 

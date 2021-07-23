@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import AppContext from "../../Containers/AppContainer/AppContext";
+import { useIsMobile } from "../../hooks";
+
 import { Input } from "../../Inputs";
 import { Search } from "../../Svgs";
 import { Column, Row } from "../../Layout";
@@ -65,20 +66,18 @@ const TabMenu: React.FunctionComponent<Props> = (
 
   const { onSearch } = props;
 
+  const isMobile = useIsMobile();
+
   return (
-    <AppContext.Consumer>
-      {(isMobile) => (
-        <Row>
-          <div>{isMobile ? _renderMobileTabs() : _renderTabs()}</div>
-          <Input
-            type="search"
-            placeholder="Search"
-            onChange={onSearch}
-            iconLeft={<Search width={12} height={12} />}
-          />
-        </Row>
-      )}
-    </AppContext.Consumer>
+    <Row version="space-between">
+      <Row>{isMobile ? _renderMobileTabs() : _renderTabs()}</Row>
+      <Input
+        type="search"
+        placeholder="Search"
+        onChange={onSearch}
+        iconLeft={<Search width={12} height={12} />}
+      />
+    </Row>
   );
 };
 

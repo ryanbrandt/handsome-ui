@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import AppContext from "../../Containers/AppContainer/AppContext";
+import { useIsMobile } from "../../hooks";
 
 interface Props {
   /**
@@ -29,7 +29,7 @@ interface Props {
 const SideDrawer: React.FunctionComponent<Props> = (
   props: Props
 ): React.ReactElement => {
-  const isMobile = React.useContext(AppContext);
+  const isMobile = useIsMobile();
 
   const { visible, onClose } = props;
 

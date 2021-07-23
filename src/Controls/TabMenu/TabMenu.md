@@ -5,7 +5,7 @@ import TabMenu from "./TabMenu";
 
 const SomeComponent = () => {
   const tabs = [
-    { title: "Tab One", key: "tabOne" },
+    { title: "Tab One", key: "tabOne", active: true },
     { title: "Tab Two", key: "tabTwo" },
     { title: "Tab Three", key: "tabThree" },
   ];

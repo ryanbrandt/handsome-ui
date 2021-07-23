@@ -16,6 +16,11 @@
       opacity: 1;
       transition: 0.5s;
     }
+
+    &-active {
+      @extend .tab_menu_tab;
+      opacity: 1;
+    }
   }
 
   &-dropdown-container {

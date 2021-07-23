@@ -1,7 +1,9 @@
 import * as React from "react";
 
+import { useIsMobile } from "../../hooks";
+
 import Column from "../Column/Column";
-import { AppContext } from "../../Containers";
+
 import { combineClassNames } from "../../utils/helpers";
 
 export type RowVersion = "default" | "space-between" | "space-evenly";
@@ -47,7 +49,7 @@ interface Props {
 const Row: React.FunctionComponent<Props> = (
   props: Props
 ): React.ReactElement => {
-  const isMobile = React.useContext(AppContext);
+  const isMobile = useIsMobile();
 
   const { children } = props;
 

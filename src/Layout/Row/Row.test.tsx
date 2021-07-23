@@ -3,7 +3,7 @@ import Enzyme, { shallow, mount } from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 
 import Row from "./Row";
-import AppContext from "../../Containers/AppContainer/AppContext";
+import { AppContext } from "../../contexts";
 import Column from "../Column/Column";
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -77,7 +77,7 @@ describe("Row component", () => {
     const expected = <Column>{MOCK_CHILD}</Column>;
 
     const wrapper = mount(
-      <AppContext.Provider value={true}>
+      <AppContext.Provider value={{ isMobile: true }}>
         <Row>{MOCK_CHILD}</Row>
       </AppContext.Provider>
     );
@@ -90,12 +90,12 @@ describe("Row component", () => {
     const expectedNotResponsive = MOCK_CHILD;
 
     const responsiveWrapper = mount(
-      <AppContext.Provider value={true}>
+      <AppContext.Provider value={{ isMobile: true }}>
         <Row responsive>{MOCK_CHILD}</Row>
       </AppContext.Provider>
     );
     const notResponsiveWrapper = mount(
-      <AppContext.Provider value={true}>
+      <AppContext.Provider value={{ isMobile: true }}>
         <Row responsive={false}>{MOCK_CHILD}</Row>
       </AppContext.Provider>
     );
@@ -107,7 +107,7 @@ describe("Row component", () => {
 
   test("Applies mobile classname", () => {
     const wrapper = mount(
-      <AppContext.Provider value={true}>
+      <AppContext.Provider value={{ isMobile: true }}>
         <Row mobileClassName="foo">{MOCK_CHILD}</Row>
       </AppContext.Provider>
     );
@@ -118,7 +118,7 @@ describe("Row component", () => {
 
   test("Applies mobile inline styles", () => {
     const wrapper = mount(
-      <AppContext.Provider value={true}>
+      <AppContext.Provider value={{ isMobile: true }}>
         <Row mobileStyle={{ color: "red" }}>{MOCK_CHILD}</Row>
       </AppContext.Provider>
     );

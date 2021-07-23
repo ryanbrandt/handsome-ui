@@ -1,4 +1,5 @@
 import * as React from "react";
+import { IExtensibleAppContext } from "../../contexts";
 interface Props {
     /**
      * Children to be rendered within the app
@@ -16,6 +17,10 @@ interface Props {
      * Global app container inline styles
      */
     style?: React.CSSProperties;
+    /**
+     * Optional additional contexts to provide
+     */
+    additionalContext?: IExtensibleAppContext;
 }
 declare const AppContainer: React.FunctionComponent<Props>;
 export default AppContainer;

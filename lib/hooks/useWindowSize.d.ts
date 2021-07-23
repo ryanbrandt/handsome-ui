@@ -4,6 +4,7 @@ export interface WindowSize {
     outerWidth: number;
     outerHeight: number;
 }
+declare const _default: () => WindowSize;
 /**
  * Hook to subscribe to and provide window size parameters on resize events
  *
@@ -13,5 +14,4 @@ export interface WindowSize {
  *
  * @returns {WindowSize} An object with the inner and outer window sizes
  */
-declare const useWindowSize: () => WindowSize;
-export default useWindowSize;
+export default _default;

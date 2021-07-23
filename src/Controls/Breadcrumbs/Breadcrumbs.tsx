@@ -22,7 +22,7 @@ const Breadcrumbs: React.FunctionComponent<Props> = (
     <div className="breadcrumb-container">
       {crumbs.map(({ title, disabled = false, action = () => null }, i) => (
         <React.Fragment key={`${title}_${i}`}>
-          {i !== 0 && <div className="breadcrumb-divider">{">"}</div>}
+          {i !== 0 && <div className="breadcrumb-divider">{"/"}</div>}
           <div
             className={`breadcrumb-crumb ${disabled ? "disabled" : ""}`}
             onClick={disabled ? () => null : () => action()}

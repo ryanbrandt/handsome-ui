@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { AppContext } from "../../Containers";
+import { useIsMobile } from "../../hooks";
 
 import { BurgerMenu } from "../../Svgs";
 import { Column, MenuOption } from "../../Layout";
@@ -103,11 +103,9 @@ const Header: React.FunctionComponent<Props> = (
     );
   };
 
-  return (
-    <AppContext.Consumer>
-      {(isMobile) => (isMobile ? _renderMobileMenu() : _renderDefaultMenu())}
-    </AppContext.Consumer>
-  );
+  const isMobile = useIsMobile();
+
+  return <>{isMobile ? _renderMobileMenu() : _renderDefaultMenu()}</>;
 };
 
 export default Header;

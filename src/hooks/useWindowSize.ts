@@ -11,10 +11,10 @@ export interface WindowSize {
 
 const useWindowSize = (): WindowSize => {
   const [size, setSize] = useState<WindowSize>({
-    innerWidth: 0,
-    innerHeight: 0,
-    outerWidth: 0,
-    outerHeight: 0,
+    innerWidth: window.innerWidth,
+    innerHeight: window.innerHeight,
+    outerWidth: window.outerWidth,
+    outerHeight: window.outerHeight,
   });
 
   useLayoutEffect(() => {

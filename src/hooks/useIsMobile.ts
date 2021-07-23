@@ -1,32 +1,15 @@
 import { useEffect, useState } from "react";
 
 import { useAppContextOrHook } from "./useAppContextOrHook";
-import useWindowSize, { WindowSize } from "./useWindowSize";
+import useWindowSize from "./useWindowSize";
 
-export type IsMobileConstraints = Partial<WindowSize>;
-
-export const DEFAULT_CONSTRAINTS: IsMobileConstraints = {
-  innerWidth: 1024,
-};
-
-const useIsMobile = (
-  constraints: IsMobileConstraints = DEFAULT_CONSTRAINTS
-): boolean => {
-  const windowSize = useAppContextOrHook("windowSize", useWindowSize);
+const useIsMobile = (): boolean => {
+  const { innerWidth } = useAppContextOrHook("windowSize", useWindowSize);
 
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    let isMobile = true;
-
-    for (const constraintKey in constraints) {
-      if (windowSize[constraintKey] > constraints[constraintKey]) {
-        isMobile = false;
-        break;
-      }
-    }
-
-    setIsMobile(isMobile);
+    setIsMobile(innerWidth < 1024);
   }, [innerWidth, setIsMobile]);
 
   return isMobile;
@@ -40,6 +23,4 @@ const useIsMobile = (
  *
  * @returns {boolean} Boolean representing is the screen is mobile
  */
-export default (
-  constraints: IsMobileConstraints = DEFAULT_CONSTRAINTS
-): boolean => useAppContextOrHook("isMobile", useIsMobile, constraints);
+export default (): boolean => useAppContextOrHook("isMobile", useIsMobile);

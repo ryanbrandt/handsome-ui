@@ -1,7 +1,4 @@
-import { WindowSize } from "./useWindowSize";
-export declare type IsMobileConstraints = Partial<WindowSize>;
-export declare const DEFAULT_CONSTRAINTS: IsMobileConstraints;
-declare const _default: (constraints?: IsMobileConstraints) => boolean;
+declare const _default: () => boolean;
 /**
  * Hook to detect if the client is mobile via window sizing
  *

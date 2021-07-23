@@ -1,4 +1,16 @@
 module.exports = {
+  theme: {
+    fontFamily: {
+      base: "Sofia Pro",
+    },
+  },
+  styles: {
+    StyleGuide: {
+      content: {
+        maxWidth: 1600,
+      },
+    },
+  },
   components: "./src/**/*.tsx",
   require: ["./src/index.scss"],
   verbose: true,

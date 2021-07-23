@@ -25,7 +25,7 @@ const Breadcrumbs: React.FunctionComponent<Props> = (
           {i !== 0 && <div className="breadcrumb-divider">{">"}</div>}
           <div
             className={`breadcrumb-crumb ${disabled ? "disabled" : ""}`}
-            onClick={disabled ? () => null : action()}
+            onClick={disabled ? () => null : () => action()}
           >
             {title}
           </div>

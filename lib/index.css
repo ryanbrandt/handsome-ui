@@ -1830,16 +1830,19 @@
   padding: 1vw;
   pointer-events: none;
 }
-.tab_menu_tab {
+.tab_menu_tab, .tab_menu_tab-active {
   display: inline-block;
   padding: 1vw;
   cursor: pointer;
   opacity: 0.5;
   user-select: none;
 }
-.tab_menu_tab:hover {
+.tab_menu_tab:hover, .tab_menu_tab-active:hover {
   opacity: 1;
   transition: 0.5s;
+}
+.tab_menu_tab-active {
+  opacity: 1;
 }
 .tab_menu-dropdown-container {
   margin-top: 15px;

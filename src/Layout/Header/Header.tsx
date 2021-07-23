@@ -15,6 +15,7 @@ const Header: React.FunctionComponent<Props> = (
   props: Props
 ): React.ReactElement => {
   const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
+  const isMobile = useIsMobile();
 
   const handleItemClick = (option: MenuOption): void => {
     const { action } = option;
@@ -102,8 +103,6 @@ const Header: React.FunctionComponent<Props> = (
       </div>
     );
   };
-
-  const isMobile = useIsMobile();
 
   return <>{isMobile ? _renderMobileMenu() : _renderDefaultMenu()}</>;
 };

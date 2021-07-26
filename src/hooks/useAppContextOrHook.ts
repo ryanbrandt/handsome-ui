@@ -13,15 +13,17 @@ import { AppContext, IExtensibleAppContext } from "../contexts";
  *
  * @returns T
  */
-export const useAppContextOrHook = <T>(
+const useAppContextOrHook = <T>(
   appContextKey: keyof IExtensibleAppContext,
   hook: (...params: any) => T,
   ...params: any
 ): T => {
   const appContext = useContext(AppContext);
-  if (appContext[appContextKey]) {
+  if (appContext[appContextKey] !== undefined) {
     return appContext[appContextKey] as T;
   }
 
-  return hook(params);
+  return hook(...params);
 };
+
+export default useAppContextOrHook;

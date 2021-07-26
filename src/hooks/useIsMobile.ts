@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { useAppContextOrHook } from "./useAppContextOrHook";
+import useAppContextOrHook from "./useAppContextOrHook";
 import useWindowSize from "./useWindowSize";
 
 const useIsMobile = (): boolean => {

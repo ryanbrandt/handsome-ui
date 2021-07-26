@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 
-import { useAppContextOrHook } from "./useAppContextOrHook";
+import useAppContextOrHook from "./useAppContextOrHook";
 
 export interface WindowSize {
   innerWidth: number;

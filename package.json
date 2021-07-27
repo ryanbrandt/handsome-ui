@@ -12,12 +12,18 @@
   "scripts": {
     "start": "styleguidist server",
     "test": "jest",
+    "test:coverage": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "build": "tsc --declaration && sass src/index.scss lib/index.css && cp -r src/assets lib/"
   },
   "jest": {
     "verbose": true,
     "bail": false,
-    "collectCoverage": false,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
     "modulePathIgnorePatterns": [
       "sandbox",
       "node_modules"
@@ -52,6 +58,7 @@
     "babel-jest": "^25.2.6",
     "babel-loader": "^8.1.0",
     "copyfiles": "^2.2.0",
+    "coveralls": "^3.1.1",
     "css-loader": "^3.5.0",
     "enzyme": "^3.11.0",
     "eslint": "^6.8.0",

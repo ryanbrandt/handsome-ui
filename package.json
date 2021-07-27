@@ -14,7 +14,8 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "build": "tsc --declaration && sass src/index.scss lib/index.css && cp -r src/assets lib/"
+    "build": "tsc --declaration && sass src/index.scss lib/index.css && cp -r src/assets lib/",
+    "build-doc": "styleguidist build"
   },
   "jest": {
     "verbose": true,

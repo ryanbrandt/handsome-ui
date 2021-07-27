@@ -9,7 +9,7 @@ export interface WindowSize {
   outerHeight: number;
 }
 
-const useWindowSize = (): WindowSize => {
+export const _useWindowSize = (): WindowSize => {
   const [size, setSize] = useState<WindowSize>({
     innerWidth: window.innerWidth,
     innerHeight: window.innerHeight,
@@ -43,4 +43,4 @@ const useWindowSize = (): WindowSize => {
  * @returns {WindowSize} An object with the inner and outer window sizes
  */
 export default (): WindowSize =>
-  useAppContextOrHook("windowSize", useWindowSize);
+  useAppContextOrHook("windowSize", _useWindowSize);

@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 
-import { useAppContextOrHook } from "./useAppContextOrHook";
+import useAppContextOrHook from "./useAppContextOrHook";
 
 export interface WindowSize {
   innerWidth: number;
@@ -9,12 +9,12 @@ export interface WindowSize {
   outerHeight: number;
 }
 
-const useWindowSize = (): WindowSize => {
+export const _useWindowSize = (): WindowSize => {
   const [size, setSize] = useState<WindowSize>({
-    innerWidth: 0,
-    innerHeight: 0,
-    outerWidth: 0,
-    outerHeight: 0,
+    innerWidth: window.innerWidth,
+    innerHeight: window.innerHeight,
+    outerWidth: window.outerWidth,
+    outerHeight: window.outerHeight,
   });
 
   useLayoutEffect(() => {
@@ -43,4 +43,4 @@ const useWindowSize = (): WindowSize => {
  * @returns {WindowSize} An object with the inner and outer window sizes
  */
 export default (): WindowSize =>
-  useAppContextOrHook("windowSize", useWindowSize);
+  useAppContextOrHook("windowSize", _useWindowSize);

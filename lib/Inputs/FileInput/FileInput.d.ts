@@ -5,6 +5,10 @@ interface Props {
      */
     onChange: (files: Array<File>) => void;
     /**
+     * Currently selected files
+     */
+    selection: Array<File>;
+    /**
      * Optional label for file selector
      */
     label?: string;

@@ -10,4 +10,5 @@ import { IExtensibleAppContext } from "../contexts";
  *
  * @returns T
  */
-export declare const useAppContextOrHook: <T>(appContextKey: keyof IExtensibleAppContext, hook: (...params: any) => T, ...params: any) => T;
+declare const useAppContextOrHook: <T>(appContextKey: keyof IExtensibleAppContext, hook: (...params: any) => T, ...params: any) => T;
+export default useAppContextOrHook;

@@ -18,21 +18,25 @@ const Breadcrumbs: React.FunctionComponent<Props> = (
 ): React.ReactElement | null => {
   const { crumbs } = props;
 
-  return (
-    <div className="breadcrumb-container">
-      {crumbs.map(({ title, disabled = false, action = () => null }, i) => (
-        <React.Fragment key={`${title}_${i}`}>
-          {i !== 0 && <div className="breadcrumb-divider">{"/"}</div>}
-          <div
-            className={`breadcrumb-crumb ${disabled ? "disabled" : ""}`}
-            onClick={disabled ? () => null : () => action()}
-          >
-            {title}
-          </div>
-        </React.Fragment>
-      ))}
-    </div>
-  );
+  if (crumbs.length > 0) {
+    return (
+      <div data-testid="breadcrumbs" className="breadcrumb-container">
+        {crumbs.map(({ title, disabled = false, action = () => null }, i) => (
+          <React.Fragment key={`${title}_${i}`}>
+            {i !== 0 && <div className="breadcrumb-divider">{"/"}</div>}
+            <div
+              className={`breadcrumb-crumb ${disabled ? "disabled" : ""}`}
+              onClick={disabled ? () => null : () => action()}
+            >
+              {title}
+            </div>
+          </React.Fragment>
+        ))}
+      </div>
+    );
+  }
+
+  return null;
 };
 
 export default Breadcrumbs;

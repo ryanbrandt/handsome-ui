@@ -1,6 +1,7 @@
 # Handsome UI
 
 [![ryanbrandt](https://circleci.com/gh/ryanbrandt/handsome-ui.svg?style=svg)](https://app.circleci.com/pipelines/github/ryanbrandt/handsome-ui)
+[![Coverage Status](https://coveralls.io/repos/github/ryanbrandt/handsome-ui/badge.svg?branch=master)](https://coveralls.io/repos/github/ryanbrandt/handsome-ui/badge.svg?branch=master)
 
 A responsive and customizable React component library to simplify complex front-end development.
 

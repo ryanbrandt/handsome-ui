@@ -1008,6 +1008,9 @@
   flex-direction: column;
   width: 250px;
 }
+.select_label {
+  margin-bottom: 10px;
+}
 .select_container {
   margin: 10px;
   display: flex;

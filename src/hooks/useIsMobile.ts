@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { useAppContextOrHook } from "./useAppContextOrHook";
+import useAppContextOrHook from "./useAppContextOrHook";
 import useWindowSize from "./useWindowSize";
 
-const useIsMobile = (): boolean => {
+export const _useIsMobile = (): boolean => {
   const { innerWidth } = useAppContextOrHook("windowSize", useWindowSize);
 
   const [isMobile, setIsMobile] = useState(false);
@@ -23,4 +23,4 @@ const useIsMobile = (): boolean => {
  *
  * @returns {boolean} Boolean representing is the screen is mobile
  */
-export default (): boolean => useAppContextOrHook("isMobile", useIsMobile);
+export default (): boolean => useAppContextOrHook("isMobile", _useIsMobile);

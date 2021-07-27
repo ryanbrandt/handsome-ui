@@ -50,6 +50,7 @@ const Paging: React.FunctionComponent<Props> = (
 
     return (
       <div
+        data-testid="pagingPrev"
         onClick={prevFn}
         className={combineClassNames(
           "paging_controller-button page-left",
@@ -72,6 +73,7 @@ const Paging: React.FunctionComponent<Props> = (
 
     return (
       <div
+        data-testid="pagingNext"
         onClick={nextFn}
         className={combineClassNames(
           "paging_controller-button page-right",
@@ -84,7 +86,7 @@ const Paging: React.FunctionComponent<Props> = (
   };
 
   return (
-    <div className="paging_controller-container">
+    <div data-testid="paging" className="paging_controller-container">
       {_renderPreviousSection()}
       <div className="paging_controller-display">
         {page} of {totalPages}

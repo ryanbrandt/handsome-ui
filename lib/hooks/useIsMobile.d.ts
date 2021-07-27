@@ -1,3 +1,4 @@
+export declare const _useIsMobile: () => boolean;
 declare const _default: () => boolean;
 /**
  * Hook to detect if the client is mobile via window sizing

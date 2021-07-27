@@ -36,10 +36,12 @@ const TabMenu: React.FunctionComponent<Props> = (
 ): React.ReactElement => {
   const { tabs } = props;
 
-  const _handleTabChange = (tabKey: string): void => {
+  const _handleTabChange = (tab: Tab): void => {
     const { onTab } = props;
 
-    onTab(tabKey);
+    if (!tab.active) {
+      onTab(tab.key);
+    }
   };
 
   const _renderTabs = (): React.ReactNode => {
@@ -47,7 +49,7 @@ const TabMenu: React.FunctionComponent<Props> = (
       <div
         className={tab.active ? "tab_menu_tab-active" : "tab_menu_tab"}
         key={tab.title}
-        onClick={() => _handleTabChange(tab.key)}
+        onClick={() => _handleTabChange(tab)}
       >
         {tab.title}
       </div>

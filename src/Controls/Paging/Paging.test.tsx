@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import Paging from "./Paging";
+import Paging, { TEST_ID } from "./Paging";
 
 describe("Paging component", () => {
   const MOCK_PROPS = {
@@ -15,7 +15,7 @@ describe("Paging component", () => {
   it("renders", () => {
     render(<Paging {...MOCK_PROPS} />);
 
-    expect(screen.getByTestId("paging")).toBeDefined();
+    expect(screen.getByTestId(TEST_ID)).toBeDefined();
   });
 
   describe("paging actions", () => {

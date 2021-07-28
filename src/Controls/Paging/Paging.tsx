@@ -3,6 +3,8 @@ import * as React from "react";
 import { Chevron } from "../../Svgs";
 import { combineClassNames } from "../../utils/helpers";
 
+export const TEST_ID = "paging";
+
 interface Props {
   /**
    * Function to execute on "next" page click
@@ -86,7 +88,7 @@ const Paging: React.FunctionComponent<Props> = (
   };
 
   return (
-    <div data-testid="paging" className="paging_controller-container">
+    <div data-testid={TEST_ID} className="paging_controller-container">
       {_renderPreviousSection()}
       <div className="paging_controller-display">
         {page} of {totalPages}

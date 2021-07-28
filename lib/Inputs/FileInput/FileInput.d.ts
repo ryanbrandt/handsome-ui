@@ -1,4 +1,5 @@
 import * as React from "react";
+export declare const TEST_ID = "fileInput";
 interface Props {
     /**
      * Function to execute on file selection change

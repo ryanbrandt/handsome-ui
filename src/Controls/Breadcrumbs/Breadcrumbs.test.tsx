@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import BreadCrumbs from "./Breadcrumbs";
+import BreadCrumbs, { TEST_ID } from "./Breadcrumbs";
 
 describe("BreadCrumbs component", () => {
   const mockCrumbOne = {
@@ -20,13 +20,13 @@ describe("BreadCrumbs component", () => {
   it("renders when there are crumbs", () => {
     render(<BreadCrumbs crumbs={MOCK_CRUMBS} />);
 
-    expect(screen.getByTestId("breadcrumbs")).toBeDefined();
+    expect(screen.getByTestId(TEST_ID)).toBeDefined();
   });
 
   it("does not render when there are no crumbs", () => {
     render(<BreadCrumbs crumbs={[]} />);
 
-    expect(() => screen.getByTestId("breadcrumbs")).toThrow();
+    expect(() => screen.getByTestId(TEST_ID)).toThrow();
   });
 
   describe("crumbs", () => {

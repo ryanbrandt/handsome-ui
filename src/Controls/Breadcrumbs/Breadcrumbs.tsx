@@ -1,5 +1,7 @@
 import * as React from "react";
 
+export const TEST_ID = "breadcrumbs";
+
 interface Crumb {
   title: string;
   action?: Function;
@@ -20,7 +22,7 @@ const Breadcrumbs: React.FunctionComponent<Props> = (
 
   if (crumbs.length > 0) {
     return (
-      <div data-testid="breadcrumbs" className="breadcrumb-container">
+      <div data-testid={TEST_ID} className="breadcrumb-container">
         {crumbs.map(({ title, disabled = false, action = () => null }, i) => (
           <React.Fragment key={`${title}_${i}`}>
             {i !== 0 && <div className="breadcrumb-divider">{"/"}</div>}

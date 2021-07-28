@@ -1,4 +1,5 @@
 import * as React from "react";
+export declare const TEST_ID = "breadcrumbs";
 interface Crumb {
     title: string;
     action?: Function;

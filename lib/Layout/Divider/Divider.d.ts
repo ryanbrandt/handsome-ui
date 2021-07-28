@@ -1,4 +1,5 @@
 import * as React from "react";
+export declare const TEST_ID = "divider";
 interface Props {
     /**
      * Optional additional CSS classes to be applied to the divider

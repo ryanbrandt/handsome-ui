@@ -5,6 +5,8 @@ import { combineClassNames } from "../../utils/helpers";
 import { Chevron } from "../../Svgs";
 import { Divider } from "../../Layout";
 
+export const TEST_ID = "dropdown";
+
 interface Props {
   /**
    * Children to be rendered within the open dropdown container
@@ -107,7 +109,7 @@ class Dropdown extends React.Component<Props, State> {
       );
 
     return (
-      <div className="dropdown_container">
+      <div data-testid={TEST_ID} className="dropdown_container">
         {dividerTop && <Divider className="dropdown_container_divider_top" />}
         <div
           className="dropdown_container_masthead"

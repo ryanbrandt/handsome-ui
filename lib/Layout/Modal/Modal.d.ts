@@ -1,4 +1,5 @@
 import * as React from "react";
+export declare const TEST_ID = "modal";
 interface Props {
     /**
      * Flag that toggles modal visibility

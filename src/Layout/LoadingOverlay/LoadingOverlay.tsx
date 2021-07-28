@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { Spinner } from "../../Elements";
 
+export const TEST_ID = "loadingOverlay";
+
 interface Props {
   /**
    * Flag to toggle showing/hiding overlay
@@ -31,6 +33,7 @@ const LoadingOverlay: React.FunctionComponent<Props> = (
 
   return (
     <div
+      data-testid={TEST_ID}
       className={`loading_overlay-container ${
         show ? "revealed" : "hidden"
       } ${additionalStyles}`}

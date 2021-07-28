@@ -1,5 +1,7 @@
 import * as React from "react";
 
+export const TEST_ID = "divider";
+
 interface Props {
   /**
    * Optional additional CSS classes to be applied to the divider
@@ -44,7 +46,9 @@ const Divider: React.FunctionComponent<Props> = (
 
   const { style } = props;
 
-  return <div className={_computeClassName()} style={style} />;
+  return (
+    <div data-testid={TEST_ID} className={_computeClassName()} style={style} />
+  );
 };
 
 export default Divider;

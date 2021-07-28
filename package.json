@@ -23,7 +23,8 @@
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.ts",
-      "src/**/*.tsx"
+      "src/**/*.tsx",
+      "!**/*.d.ts"
     ],
     "modulePathIgnorePatterns": [
       "sandbox",

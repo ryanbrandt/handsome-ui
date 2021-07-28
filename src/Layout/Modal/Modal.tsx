@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
+export const TEST_ID = "modal";
+
 interface Props {
   /**
    * Flag that toggles modal visibility
@@ -37,21 +39,14 @@ const Modal: React.FunctionComponent<Props> = (
   const { open } = props;
 
   React.useEffect(() => {
-    if (topDivRef && topDivRef.current) {
+    if (topDivRef.current && topDivRef.current.scroll) {
       topDivRef.current.scroll({ top: 0, behavior: "smooth" });
-    }
-
-    if (open) {
-      document.getElementsByTagName("body")[0].style.overflowY = "hidden";
-      document.getElementsByTagName("html")[0].style.overflowY = "hidden";
-    } else {
-      document.getElementsByTagName("body")[0].removeAttribute("style");
-      document.getElementsByTagName("html")[0].removeAttribute("style");
     }
   }, [open]);
 
   const renderHeading = () => {
     const { heading } = props;
+
     if (!heading || typeof heading === "string") {
       return (
         <div className="modal_modal_heading">
@@ -67,7 +62,11 @@ const Modal: React.FunctionComponent<Props> = (
 
   if (open) {
     return (
-      <div className="modal_container" onClick={() => onClose()}>
+      <div
+        data-testid={TEST_ID}
+        className="modal_container"
+        onClick={() => onClose()}
+      >
         <div
           ref={topDivRef}
           className={combineClassNames(

@@ -1,4 +1,5 @@
 import * as React from "react";
+export declare const TEST_ID = "loadingOverlay";
 interface Props {
     /**
      * Flag to toggle showing/hiding overlay

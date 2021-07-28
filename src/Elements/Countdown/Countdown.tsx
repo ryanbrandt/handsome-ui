@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
+export const TEST_ID = "countdown";
+
 interface Props {
   /**
    * Initial count to countdown from, in seconds
@@ -46,6 +48,7 @@ const Countdown: React.FunctionComponent<Props> = (
         if (infinite) {
           setCount(initialCount);
         }
+
         if (onCompletion) {
           onCompletion();
         }
@@ -60,7 +63,7 @@ const Countdown: React.FunctionComponent<Props> = (
   const composedClassName = combineClassNames("countdown-container", className);
 
   return (
-    <h1 style={style} className={composedClassName}>
+    <h1 data-testid={TEST_ID} style={style} className={composedClassName}>
       {count}
     </h1>
   );

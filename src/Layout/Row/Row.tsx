@@ -6,6 +6,8 @@ import Column from "../Column/Column";
 
 import { combineClassNames } from "../../utils/helpers";
 
+export const TEST_ID = "row";
+
 export type RowVersion = "default" | "space-between" | "space-evenly";
 
 interface Props {
@@ -92,7 +94,7 @@ const Row: React.FunctionComponent<Props> = (
     );
 
     return (
-      <div className={rowClassName} style={style}>
+      <div data-testid={TEST_ID} className={rowClassName} style={style}>
         {children}
       </div>
     );

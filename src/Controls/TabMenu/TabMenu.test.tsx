@@ -54,6 +54,8 @@ describe("TabMenu component", () => {
 
       it("renders all tabs in a DropDown", () => {
         render(<TabMenu {...MOCK_PROPS} />);
+
+        expect(screen.getByTestId("dropdown")).toBeDefined();
       });
     });
 
@@ -62,7 +64,11 @@ describe("TabMenu component", () => {
         mockedUseIsMobile.mockReturnValue(false);
       });
 
-      it("renders all tabs in a div", () => {});
+      it("renders all tabs in a div", () => {
+        render(<TabMenu {...MOCK_PROPS} />);
+
+        expect(() => screen.getByTestId("dropdown")).toThrow();
+      });
     });
   });
 

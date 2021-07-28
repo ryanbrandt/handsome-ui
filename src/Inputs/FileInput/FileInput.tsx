@@ -1,5 +1,7 @@
 import * as React from "react";
 
+export const TEST_ID = "fileInput";
+
 interface Props {
   /**
    * Function to execute on file selection change
@@ -69,7 +71,7 @@ const FileInput: React.FunctionComponent<Props> = (
   const { label, multiple, accept, error } = props;
 
   return (
-    <div data-testid="fileInput" className="file_input-container">
+    <div data-testid={TEST_ID} className="file_input-container">
       {label && <p className="file_input-label">{label}</p>}
       <label className="file_input-wrapper">
         Choose Files

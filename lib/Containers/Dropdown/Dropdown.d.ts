@@ -1,4 +1,5 @@
 import * as React from "react";
+export declare const TEST_ID = "dropdown";
 interface Props {
     /**
      * Children to be rendered within the open dropdown container

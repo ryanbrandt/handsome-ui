@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
+export const TEST_ID = "spinner";
 interface Props {
   /**
    * Optional custom CSS classes
@@ -17,7 +18,7 @@ const Spinner: React.FunctionComponent<Props> = (
   const containerClassName = combineClassNames("spinner-circle", className);
 
   return (
-    <div className={containerClassName}>
+    <div data-testid={TEST_ID} className={containerClassName}>
       <div className="spinner-circle1 spinner-child"></div>
       <div className="spinner-circle2 spinner-child"></div>
       <div className="spinner-circle3 spinner-child"></div>

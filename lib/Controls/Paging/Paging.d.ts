@@ -1,4 +1,5 @@
 import * as React from "react";
+export declare const TEST_ID = "paging";
 interface Props {
     /**
      * Function to execute on "next" page click

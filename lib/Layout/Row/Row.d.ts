@@ -1,4 +1,5 @@
 import * as React from "react";
+export declare const TEST_ID = "row";
 export declare type RowVersion = "default" | "space-between" | "space-evenly";
 interface Props {
     /**

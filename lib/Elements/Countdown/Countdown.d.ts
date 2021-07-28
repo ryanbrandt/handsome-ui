@@ -1,4 +1,5 @@
 import React from "react";
+export declare const TEST_ID = "countdown";
 interface Props {
     /**
      * Initial count to countdown from, in seconds

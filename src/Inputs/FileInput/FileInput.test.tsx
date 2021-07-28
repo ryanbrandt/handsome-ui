@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import FileInput from "./FileInput";
+import FileInput, { TEST_ID } from "./FileInput";
 
 describe("FileInput component", () => {
   const getInput = (): HTMLInputElement => {
@@ -12,7 +12,7 @@ describe("FileInput component", () => {
   it("renders", () => {
     render(<FileInput onChange={jest.fn()} selection={[]} />);
 
-    expect(screen.getByTestId("fileInput")).toBeDefined();
+    expect(screen.getByTestId(TEST_ID)).toBeDefined();
   });
 
   describe("when files are selected", () => {

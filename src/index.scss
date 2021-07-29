@@ -1,0 +1,76 @@
+@import "./common.scss";
+
+@import "./Elements/Badge/index.scss";
+@import "./Elements/BounceLoader/index.scss";
+@import "./Elements/Button/index.scss";
+@import "./Elements/Spinner/index.scss";
+
+@import "./Inputs/FileInput/index.scss";
+@import "./Inputs/Input/index.scss";
+@import "./Inputs/Select/index.scss";
+@import "./Inputs/Text/index.scss";
+@import "./Inputs/RadioButton/index.scss";
+
+@import "./Layout/Column/index.scss";
+@import "./Layout/Divider/index.scss";
+@import "./Layout/Header/index.scss";
+@import "./Layout/LoadingOverlay/index.scss";
+@import "./Layout/Modal/index.scss";
+@import "./Layout/Row/index.scss";
+@import "./Layout/SideDrawer/index.scss";
+@import "./Layout/SideMenu/index.scss";
+@import "./Layout/Table/index.scss";
+@import "./Layout/TableCell/index.scss";
+@import "./Layout/TableRow/index.scss";
+
+@import "./Containers/Dropdown/index.scss";
+
+@import "./Controls/Breadcrumbs/index.scss";
+@import "./Controls/Paging/index.scss";
+@import "./Controls/TabMenu/index.scss";
+
+@font-face {
+  font-family: "Sofia Pro";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/sofiapro/SofiaProRegular.woff2") format("woff2"),
+    url("./assets/fonts/sofiapro/SofiaProRegular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  font-style: normal;
+  font-weight: bold;
+  src: url("./assets/fonts/sofiapro/SofiaProBold.woff2") format("woff2"),
+    url("./assets/fonts/sofiapro/SofiaProBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  font-style: italic;
+  font-weight: bold;
+  src: url("./assets/fonts/sofiapro/SofiaProBoldItalic.woff2") format("woff2"),
+    url("./assets/fonts/sofiapro/SofiaProBoldItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/sofiapro/SofiaProSemiBold.woff2") format("woff2"),
+    url("./assets/fonts/sofiapro/SofiaProSemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  font-style: italic;
+  font-weight: 600;
+  src: url("./assets/fonts/sofiapro/SofiaProSemiBoldItalic.woff2")
+      format("woff2"),
+    url("./assets/fonts/sofiapro/SofiaProSemiBoldItalic.woff") format("woff");
+}
+
+html,
+body {
+  font-family: "Sofia Pro", "Source Sans Pro";
+}

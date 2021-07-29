@@ -1113,6 +1113,44 @@
   outline: none;
 }
 
+.radio_button_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio_button_standard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  width: 16px;
+  height: 16px;
+  border: 0.5px solid #dadada;
+  box-shadow: 0px 1px 2px inset #000000;
+}
+
+.radio_button_checked::after {
+  background: #29d2c9;
+  width: 6px;
+  height: 6px;
+  border-radius: 11px;
+  content: "";
+}
+
+.radio_button_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.radio_button_label {
+  padding: 10px;
+}
+
+.radio_button_label_disabled {
+  opacity: 0.5;
+}
+
 .column {
   display: flex;
   flex-direction: column;

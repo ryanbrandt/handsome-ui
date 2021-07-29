@@ -1,6 +1,6 @@
 {
   "name": "handsome-ui",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A handsome React component library",
   "license": "MIT",
   "repository": "https://github.com/ryanbrandt/handsome-ui",
@@ -12,12 +12,20 @@
   "scripts": {
     "start": "styleguidist server",
     "test": "jest",
-    "build": "tsc --declaration && copyfiles -u 1 src/**/*.css lib/ && cp -r src/assets lib/"
+    "test:coverage": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "build": "tsc --declaration && sass src/index.scss lib/index.css && cp -r src/assets lib/",
+    "build-doc": "styleguidist build"
   },
   "jest": {
     "verbose": true,
     "bail": false,
-    "collectCoverage": false,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "!**/*.d.ts"
+    ],
     "modulePathIgnorePatterns": [
       "sandbox",
       "node_modules"
@@ -31,7 +39,7 @@
     }
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^17.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -39,29 +47,47 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
+    "@testing-library/dom": "^7.21.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/react-hooks": "^7.0.1",
+    "@testing-library/user-event": "^13.2.0",
+    "@types/enzyme": "^3.10.8",
+    "@types/jest": "^26.0.20",
     "@types/react": "^16.9.27",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^25.2.6",
     "babel-loader": "^8.1.0",
     "copyfiles": "^2.2.0",
+    "coveralls": "^3.1.1",
     "css-loader": "^3.5.0",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jsx-a11y": "^6.3.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4",
+    "eslint-plugin-standard": "^4.0.0",
     "jest": "^25.2.7",
     "prettier": "^1.19.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-styleguidist": "^11.0.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-styleguidist": "^11.1.7",
+    "sass": "^1.35.2",
+    "sass-loader": "^10",
     "style-loader": "^1.1.3",
     "ts-loader": "^6.2.2",
     "tslint": "^6.1.1",
-    "typescript": "^3.8.3",
+    "typescript": "^4.3.5",
     "url-loader": "^4.1.0",
     "webpack": "^4.42.1"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import "./index.css";
+export const TEST_ID = "divider";
 
 interface Props {
   /**
@@ -46,7 +46,9 @@ const Divider: React.FunctionComponent<Props> = (
 
   const { style } = props;
 
-  return <div className={_computeClassName()} style={style} />;
+  return (
+    <div data-testid={TEST_ID} className={_computeClassName()} style={style} />
+  );
 };
 
 export default Divider;

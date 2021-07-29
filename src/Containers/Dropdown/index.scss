@@ -1,0 +1,43 @@
+.dropdown {
+  &_container {
+    width: 100%;
+  }
+
+  &-closed {
+    max-height: 0;
+    overflow: hidden;
+    visibility: collapse;
+    transition: all 0.25s ease-out;
+  }
+
+  &-open {
+    max-height: 100vh;
+    visibility: visible;
+    overflow: hidden;
+    transition: all 0.25s ease-in;
+  }
+
+  &_container {
+    &_masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      cursor: pointer;
+    }
+
+    &_heading {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    &_divider {
+      &_top {
+        margin-bottom: 15px;
+      }
+
+      &_bottom {
+        margin-top: 15px;
+      }
+    }
+  }
+}

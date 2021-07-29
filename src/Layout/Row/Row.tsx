@@ -1,28 +1,31 @@
 import * as React from "react";
 
+import { useIsMobile } from "../../hooks";
+
 import Column from "../Column/Column";
-import { AppContext } from "../../Containers";
 
-import "./index.css";
+import { combineClassNames } from "../../utils/helpers";
 
-export enum RowVersionOptions {
-  "default",
-  "space-between",
-  "space-evenly",
-}
+export const TEST_ID = "row";
 
-export type RowVersion = RowVersionOptions;
+export type RowVersion = "default" | "space-between" | "space-evenly";
 
 interface Props {
+  /**
+   * Children to be rendered within row
+   */
+  children: React.ReactNode;
+
   /**
    * Optional flex row version
    */
   version?: RowVersion;
 
   /**
-   * Children to be rendered within row
+   * Optional flag specifying if row is mobile-responsive
+   * Defaults to true
    */
-  children: React.ReactNode;
+  responsive?: boolean;
 
   /**
    * Optional additional CSS classes
@@ -42,26 +45,27 @@ interface Props {
   /**
    * Optional inline styles for row in mobile
    */
-
   mobileStyle?: React.CSSProperties;
 }
 
 const Row: React.FunctionComponent<Props> = (
   props: Props
 ): React.ReactElement => {
+  const isMobile = useIsMobile();
+
   const { children } = props;
 
   const _getVersionClassName = (version: RowVersion) => {
     switch (version) {
-      case RowVersionOptions.default: {
+      case "default": {
         return "row";
       }
 
-      case RowVersionOptions["space-between"]: {
+      case "space-between": {
         return "row_space-between";
       }
 
-      case RowVersionOptions["space-evenly"]: {
+      case "space-evenly": {
         return "row_space-evenly";
       }
 
@@ -71,7 +75,7 @@ const Row: React.FunctionComponent<Props> = (
     }
   };
 
-  const _renderMobileRow = (): React.ReactNode => {
+  const _renderMobileRow = (): React.ReactElement => {
     const { mobileClassName, mobileStyle } = props;
 
     return (
@@ -81,30 +85,29 @@ const Row: React.FunctionComponent<Props> = (
     );
   };
 
-  const _renderRow = (): React.ReactNode => {
-    const {
-      className,
-      style,
-      version = RowVersionOptions["space-between"],
-    } = props;
+  const _renderRow = (): React.ReactElement => {
+    const { className, style, version = "default" } = props;
+
+    const rowClassName = combineClassNames(
+      _getVersionClassName(version),
+      className
+    );
 
     return (
-      <div
-        className={`${className ? `${className} ` : ""}${_getVersionClassName(
-          version
-        )}`}
-        style={style}
-      >
+      <div data-testid={TEST_ID} className={rowClassName} style={style}>
         {children}
       </div>
     );
   };
 
-  return (
-    <AppContext.Consumer>
-      {(isMobile) => (isMobile ? _renderMobileRow() : _renderRow())}
-    </AppContext.Consumer>
-  );
+  const { responsive = true } = props;
+
+  let renderFn = _renderRow;
+  if (isMobile && responsive) {
+    renderFn = _renderMobileRow;
+  }
+
+  return renderFn();
 };
 
 export default Row;

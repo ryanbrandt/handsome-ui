@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./index.css";
 interface Props {
     /**
      * Array containing either string or ReactNode types to be presented as

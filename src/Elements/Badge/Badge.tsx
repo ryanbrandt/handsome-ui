@@ -1,8 +1,6 @@
 import * as React from "react";
 
-import { AppContext } from "../../Containers/";
-
-import "./index.css";
+import { combineClassNames } from "../../utils/helpers";
 
 interface Props {
   /**
@@ -34,28 +32,12 @@ const Badge: React.FunctionComponent<Props> = (
     return content;
   };
 
-  const _renderBadge = (isMobile: boolean): React.ReactNode => {
-    const { className, style } = props;
-
-    let baseClass = "badge_badge";
-    if (isMobile) {
-      // TODO
-    }
-
-    return (
-      <div
-        className={`${className ? `${className} ` : ""}${baseClass}`}
-        style={style}
-      >
-        {_renderContent()}
-      </div>
-    );
-  };
+  const { className, style } = props;
 
   return (
-    <AppContext.Consumer>
-      {(isMobile) => _renderBadge(isMobile)}
-    </AppContext.Consumer>
+    <div className={combineClassNames("badge_badge", className)} style={style}>
+      {_renderContent()}
+    </div>
   );
 };
 

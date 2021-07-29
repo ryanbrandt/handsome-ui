@@ -1,8 +1,8 @@
 import * as React from "react";
-import "./index.css";
+export declare const TEST_ID = "breadcrumbs";
 interface Crumb {
     title: string;
-    action: Function;
+    action?: Function;
     disabled?: boolean;
 }
 interface Props {
@@ -10,10 +10,6 @@ interface Props {
      * Array of Crumb to populate breadcrumbs
      */
     crumbs: Array<Crumb>;
-    /**
-     * Optional flag to show/hide
-     */
-    show?: boolean;
 }
 declare const Breadcrumbs: React.FunctionComponent<Props>;
 export default Breadcrumbs;

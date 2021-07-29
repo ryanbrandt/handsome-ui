@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
+export const TEST_ID = "modal";
 
 interface Props {
   /**
@@ -33,27 +33,20 @@ interface Props {
 
 const Modal: React.FunctionComponent<Props> = (
   props: Props
-): React.ReactElement => {
+): React.ReactElement | null => {
   const topDivRef = React.createRef<HTMLDivElement>();
 
   const { open } = props;
 
   React.useEffect(() => {
-    if (topDivRef && topDivRef.current) {
+    if (topDivRef.current && topDivRef.current.scroll) {
       topDivRef.current.scroll({ top: 0, behavior: "smooth" });
-    }
-
-    if (open) {
-      document.getElementsByTagName("body")[0].style.overflowY = "hidden";
-      document.getElementsByTagName("html")[0].style.overflowY = "hidden";
-    } else {
-      document.getElementsByTagName("body")[0].removeAttribute("style");
-      document.getElementsByTagName("html")[0].removeAttribute("style");
     }
   }, [open]);
 
   const renderHeading = () => {
     const { heading } = props;
+
     if (!heading || typeof heading === "string") {
       return (
         <div className="modal_modal_heading">
@@ -67,29 +60,34 @@ const Modal: React.FunctionComponent<Props> = (
 
   const { modalClassName, onClose, children } = props;
 
-  return (
-    <div
-      className={`modal_container ${!open ? "modal_closed" : ""}`}
-      onClick={() => onClose()}
-    >
+  if (open) {
+    return (
       <div
-        ref={topDivRef}
-        className={combineClassNames(
-          "modal_modal handsome_scroll",
-          modalClassName
-        )}
-        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+        data-testid={TEST_ID}
+        className="modal_container"
+        onClick={() => onClose()}
       >
-        <div className="modal_close" onClick={() => onClose()}>
-          close
-        </div>
-        <div className="modal_inner">
-          {renderHeading()}
-          <div className="modal_modal_content">{children}</div>
+        <div
+          ref={topDivRef}
+          className={combineClassNames(
+            "modal_modal handsome_scroll",
+            modalClassName
+          )}
+          onClick={(e: React.MouseEvent) => e.stopPropagation()}
+        >
+          <div className="modal_close" onClick={() => onClose()}>
+            close
+          </div>
+          <div className="modal_inner">
+            {renderHeading()}
+            <div className="modal_modal_content">{children}</div>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return null;
 };
 
 export default Modal;

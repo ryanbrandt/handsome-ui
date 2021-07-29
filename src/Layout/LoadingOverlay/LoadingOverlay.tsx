@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { Spinner } from "../../Elements";
 
-import "./index.css";
+export const TEST_ID = "loadingOverlay";
 
 interface Props {
   /**
@@ -33,6 +33,7 @@ const LoadingOverlay: React.FunctionComponent<Props> = (
 
   return (
     <div
+      data-testid={TEST_ID}
       className={`loading_overlay-container ${
         show ? "revealed" : "hidden"
       } ${additionalStyles}`}

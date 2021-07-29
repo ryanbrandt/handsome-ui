@@ -1,10 +1,14 @@
 import * as React from "react";
-import "./index.css";
+export declare const TEST_ID = "fileInput";
 interface Props {
     /**
      * Function to execute on file selection change
      */
     onChange: (files: Array<File>) => void;
+    /**
+     * Currently selected files
+     */
+    selection: Array<File>;
     /**
      * Optional label for file selector
      */

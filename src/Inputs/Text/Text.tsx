@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { AppContext } from "../../Containers";
+import { useIsMobile } from "../../hooks";
 
-import "./index.css";
+import { combineClassNames } from "../../utils/helpers";
 
 interface Props {
   /**
@@ -106,7 +106,7 @@ const Text: React.FunctionComponent<Props> = (
     return (
       <textarea
         placeholder={placeholder}
-        className={`${className ? `${className} ` : ""}${baseClass}`}
+        className={combineClassNames(baseClass, className)}
         style={style}
         onChange={
           onChange
@@ -126,33 +126,25 @@ const Text: React.FunctionComponent<Props> = (
     );
   };
 
-  const _renderTextContainer = (isMobile: boolean): React.ReactNode => {
-    const { label, help, error, containerClassName, containerStyle } = props;
+  const isMobile = useIsMobile();
 
-    let className = "text_container";
-    if (isMobile) {
-      className = "text_container_mobile";
-    }
+  const { label, help, error, containerClassName, containerStyle } = props;
 
-    return (
-      <div
-        className={`${
-          containerClassName ? `${containerClassName} ` : ""
-        }${className}`}
-        style={containerStyle}
-      >
-        {label && <label className="text_label">{label}</label>}
-        {_renderText()}
-        {help && <label className="text_help">{help}</label>}
-        {error && <label className="text_error">{error}</label>}
-      </div>
-    );
-  };
+  let baseClass = "text_container";
+  if (isMobile) {
+    baseClass = "text_container_mobile";
+  }
 
   return (
-    <AppContext.Consumer>
-      {(isMobile) => _renderTextContainer(isMobile)}
-    </AppContext.Consumer>
+    <div
+      className={combineClassNames(baseClass, containerClassName)}
+      style={containerStyle}
+    >
+      {label && <label className="text_label">{label}</label>}
+      {_renderText()}
+      {help && <span className="text_help">{help}</span>}
+      {error && <span className="text_error">{error}</span>}
+    </div>
   );
 };
 

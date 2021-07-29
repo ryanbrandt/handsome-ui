@@ -2,8 +2,6 @@ import * as React from "react";
 
 import { combineClassNames } from "../../utils/helpers";
 
-import "./index.css";
-
 interface Props {
   /**
    * Array containing either string or ReactNode types to be presented as

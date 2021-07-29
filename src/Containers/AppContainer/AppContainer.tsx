@@ -1,8 +1,7 @@
 import * as React from "react";
+import { useIsMobile, useWindowSize, useDebounce } from "../../hooks";
 
-import AppContext from "./AppContext";
-
-import "../../global.css";
+import { AppContext, IExtensibleAppContext } from "../../contexts";
 
 interface Props {
   /**
@@ -24,32 +23,29 @@ interface Props {
    * Global app container inline styles
    */
   style?: React.CSSProperties;
+
+  /**
+   * Optional additional contexts to provide
+   */
+  additionalContext?: IExtensibleAppContext;
 }
 
 const AppContainer: React.FunctionComponent<Props> = (
   props: Props
 ): React.ReactElement => {
-  const { children, header, className, style } = props;
+  const { children, header, className, style, additionalContext = {} } = props;
 
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    _handleResize();
-    window.addEventListener("resize", _handleResize);
-
-    return () => window.removeEventListener("resize", _handleResize);
-  }, []);
-
-  const _handleResize = (): void => {
-    if (window.innerWidth < 1024) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
+  const debouncedWindowSize = useDebounce(useWindowSize());
+  const isMobile = useIsMobile();
 
   return (
-    <AppContext.Provider value={isMobile}>
+    <AppContext.Provider
+      value={{
+        windowSize: debouncedWindowSize,
+        isMobile: isMobile,
+        ...additionalContext,
+      }}
+    >
       {header}
       <div className={className} style={style}>
         {children}

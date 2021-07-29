@@ -1,0 +1,45 @@
+@import "../../common.scss";
+
+.select {
+  &_container {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+  }
+
+  &_label {
+    margin-bottom: 10px;
+  }
+
+  &_container {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+  }
+
+  &_error {
+    @extend .handsome_error;
+
+    margin-top: 10px;
+  }
+
+  &_select {
+    background-color: #f8f8f8;
+    border-radius: 2.5px;
+    border: 1px solid #dadada;
+    padding: 10px 8px 10px 8px;
+    width: 100%;
+
+    &:focus {
+      box-shadow: 0 0 1pt 1pt #0d1be04d;
+      border: 1px solid #0d1be04d;
+      outline: none;
+    }
+
+    &_disabled {
+      @extend .disabled;
+    }
+  }
+}

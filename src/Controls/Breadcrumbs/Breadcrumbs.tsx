@@ -1,10 +1,10 @@
 import * as React from "react";
 
-import "./index.css";
+export const TEST_ID = "breadcrumbs";
 
 interface Crumb {
   title: string;
-  action: Function;
+  action?: Function;
   disabled?: boolean;
 }
 
@@ -13,29 +13,24 @@ interface Props {
    * Array of Crumb to populate breadcrumbs
    */
   crumbs: Array<Crumb>;
-
-  /**
-   * Optional flag to show/hide
-   */
-  show?: boolean;
 }
 
 const Breadcrumbs: React.FunctionComponent<Props> = (
   props: Props
 ): React.ReactElement | null => {
-  const { crumbs, show = true } = props;
+  const { crumbs } = props;
 
-  if (show) {
+  if (crumbs.length > 0) {
     return (
-      <div className="breadcrumb-container">
-        {crumbs.map((crumb, i) => (
-          <React.Fragment key={`${crumb.title}_${i}`}>
-            {i !== 0 && <div className="breadcrumb-divider">/</div>}
+      <div data-testid={TEST_ID} className="breadcrumb-container">
+        {crumbs.map(({ title, disabled = false, action = () => null }, i) => (
+          <React.Fragment key={`${title}_${i}`}>
+            {i !== 0 && <div className="breadcrumb-divider">{"/"}</div>}
             <div
-              className={`breadcrumb-crumb ${crumb.disabled ? "disabled" : ""}`}
-              onClick={crumb.disabled ? () => null : () => crumb.action()}
+              className={`breadcrumb-crumb ${disabled ? "disabled" : ""}`}
+              onClick={disabled ? () => null : () => action()}
             >
-              {crumb.title}
+              {title}
             </div>
           </React.Fragment>
         ))}

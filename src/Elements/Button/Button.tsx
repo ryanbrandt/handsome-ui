@@ -1,6 +1,4 @@
 import * as React from "react";
-
-import "./index.css";
 interface Props {
   /**
    * Text content of the button
@@ -50,7 +48,7 @@ const Button: React.FunctionComponent<Props> = (
     const { inverting, round, disabled, className } = props;
 
     let classes: string[] = className
-      ? [className, "buton_common"]
+      ? [className, "button_common"]
       : ["button_common"];
 
     if (inverting) {

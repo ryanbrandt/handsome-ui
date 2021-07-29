@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./index.css";
 interface Props {
     /**
      * Children (e.g. TableCell) to be rendered within row

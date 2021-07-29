@@ -3,14 +3,10 @@ import * as React from "react";
 import { MenuOption } from "../types";
 
 import SideDrawer from "../SideDrawer/SideDrawer";
-
-import "./index.css";
 import { BurgerMenu } from "../../Svgs";
 
 interface Props {
   options: Array<MenuOption>;
-
-  open: boolean;
 }
 
 const SideMenu: React.FunctionComponent<Props> = (
@@ -37,10 +33,11 @@ const SideMenu: React.FunctionComponent<Props> = (
   const _renderOptions = (): React.ReactNode => {
     const { options } = props;
 
-    return options.map((option) => (
+    return options.map((option, i) => (
       <div
         onClick={(e) => handleOptionClick(e, option)}
         className={_computeOptionClassName(option)}
+        key={`${option}_${i}`}
       >
         <div className="sidemenu_option-content">{option.name}</div>
       </div>
@@ -56,9 +53,11 @@ const SideMenu: React.FunctionComponent<Props> = (
         />
       </div>
       <SideDrawer onClose={() => setOpen(false)} visible={open}>
-        <div className="sidemenu_container">
-          <div className="handsome_flex-center-col">{_renderOptions()}</div>
-        </div>
+        {open && (
+          <div className="sidemenu_container">
+            <div className="handsome_flex-center-col">{_renderOptions()}</div>
+          </div>
+        )}
       </SideDrawer>
     </React.Fragment>
   );

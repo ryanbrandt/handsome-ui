@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./index.css";
+export declare const TEST_ID = "spinner";
 interface Props {
     /**
      * Optional custom CSS classes

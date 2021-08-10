@@ -4,7 +4,7 @@ import useAppContextOrHook from "./useAppContextOrHook";
 import useWindowSize from "./useWindowSize";
 
 export const _useIsMobile = (): boolean => {
-  const { innerWidth } = useAppContextOrHook("windowSize", useWindowSize);
+  const { innerWidth } = useWindowSize();
 
   const [isMobile, setIsMobile] = useState(false);
 

@@ -36,5 +36,5 @@ export const debounce = <T>(callback: (...args: any) => T, wait = 500): T => {
     timeout = setTimeout(() => callback(...args), wait);
   };
 
-  return <T>(<any>callable);
+  return <T>(<any>callable());
 };
